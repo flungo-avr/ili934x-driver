@@ -26,10 +26,10 @@
 #include "ili934_conf.h"
 
 #define write_cmd(cmd) \
-  asm volatile("sts %0,%1" :: "i" (LCD_CMD_ADDR), "r" (cmd) : "memory");
+  asm volatile("sts %0,%1" :: "i" (ILI934X_CMD_ADDR), "r" (cmd) : "memory");
 #define write_data(data) \
-  asm volatile("sts %0,%1" :: "i" (LCD_DATA_ADDR), "r" (data) : "memory");
+  asm volatile("sts %0,%1" :: "i" (ILI934X_DATA_ADDR), "r" (data) : "memory");
 #define write_data16(data) \
-  asm volatile("sts %0,%B1 \n\t sts %0,%A1" :: "i" (LCD_DATA_ADDR), "r" (data)  : "memory");
+  asm volatile("sts %0,%B1 \n\t sts %0,%A1" :: "i" (ILI934X_DATA_ADDR), "r" (data)  : "memory");
 #define write_cmd_data(cmd, data) \
-  asm volatile("sts %0,%1 \n\t sts %2,%3" :: "i" (LCD_CMD_ADDR), "r" (cmd), "i" (LCD_DATA_ADDR), "r" (data)  : "memory");
+  asm volatile("sts %0,%1 \n\t sts %2,%3" :: "i" (ILI934X_CMD_ADDR), "r" (cmd), "i" (ILI934X_DATA_ADDR), "r" (data)  : "memory");
