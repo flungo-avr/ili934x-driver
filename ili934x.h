@@ -23,7 +23,7 @@
  */
 
 #include <stdbool.h>
-#include "ili934_conf.h"
+#include "ili934x_conf.h"
 
 #define ili934_write_cmd(cmd) \
   asm volatile("sts %0,%1" :: "i" (ILI934X_CMD_ADDR), "r" (cmd) : "memory");
