@@ -67,3 +67,17 @@ void lcd_init() {
   /* Enable the LCD backlight */
   PORTB |= _BV(ILI934X_BLC_PIN);
 }
+
+void lcd_selectRegion(lcd_region region) {
+  lcd.selection = (region.right - region.left) * (region.bottom - region.top);
+  ili934_columnAddrSet(region.left, region.right);
+  ili934_pageAddrSet(region.top, region.bottom);
+}
+
+void lcd_setColour(lcd_colour16 colour) {
+  uint16_t i;
+  ili934_initMemoryWrite();
+  for (i = 0; i < lcd.selection; i++) {
+    ili934_write_data16(colour);
+  }
+}
