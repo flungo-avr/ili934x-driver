@@ -24,8 +24,12 @@
  */
 
 #include "ili934x.h"
+#include "ili934x_cmd.h"
 #include "colour/colour.h"
 #include <stdbool.h>
+
+#ifndef ILI934X_LIB_LCDH
+#define ILI934X_LIB_LCDH 1
 
 typedef enum {
   North = 0,
@@ -47,16 +51,16 @@ typedef struct {
 
 typedef struct {
   uint16_t width, height;
-  orientation orient;
+  lcd_orientation orient;
   uint16_t selection;
   lcd_colour16 foreground, background;
-} lcd;
+} lcd_display;
 
-extern lcd lcd;
+extern lcd_display lcd;
 
 void lcd_init();
-void lcd_orientation(lcd_orientation orient);
-void lcd_brightness(uint8_t i);
+void lcd_setOrientation(lcd_orientation orient);
+void lcd_setBrightness(uint8_t i);
 void lcd_setFrameRateHz(uint8_t fr);
 void lcd_selectRegion(lcd_region region);
 void lcd_setColour(lcd_colour16 colour);
@@ -66,11 +70,13 @@ void lcd_setRegion(lcd_region region, lcd_colour16 colour);
 void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t regions);
 void lcd_setBitmap(lcd_region region, lcd_colour16 *colour);
 void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour);
-void lcd_setBitmapMono(lcd_region region, uint8_t* data, uint8_t bpc, lcd_colour16 colour);
-void lcd_setRegionFunction(lcd_region region, lcd_colour16 (f*)(uint16_t x, uint16_t), bool realtive);
+void lcd_setBitmapMono(lcd_region region, uint8_t *data, uint8_t bpc);
+void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint16_t), bool relative);
 void lcd_clear();
 void lcd_clearPixel(lcd_pixel p);
 void lcd_clearPixels(lcd_pixel *p, uint16_t pixels);
 void lcd_clearRegion(lcd_region region);
 void lcd_clearRegions(lcd_region *region, uint16_t regions);
-void lcd_clearRegionFunction(lcd_region region, bool (f*)(uint16_t x, uint16_t), bool realtive);
+void lcd_clearRegionFunction(lcd_region region, bool (*f)(uint16_t x, uint16_t), bool relative);
+
+#endif

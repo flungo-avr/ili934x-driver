@@ -25,11 +25,16 @@
 #include <stdbool.h>
 #include "ili934x_conf.h"
 
-#define ili934_write_cmd(cmd) \
+#ifndef ILI934X_LIB_ILI934XH
+#define ILI934X_LIB_ILI934XH 1
+
+#define ili934x_write_cmd(cmd) \
   asm volatile("sts %0,%1" :: "i" (ILI934X_CMD_ADDR), "r" (cmd) : "memory");
-#define ili934_write_data(data) \
+#define ili934x_write_data(data) \
   asm volatile("sts %0,%1" :: "i" (ILI934X_DATA_ADDR), "r" (data) : "memory");
-#define ili934_write_data16(data) \
+#define ili934x_write_data16(data) \
   asm volatile("sts %0,%B1 \n\t sts %0,%A1" :: "i" (ILI934X_DATA_ADDR), "r" (data)  : "memory");
-#define ili934_write_cmd_data(cmd, data) \
+#define ili934x_write_cmd_data(cmd, data) \
   asm volatile("sts %0,%1 \n\t sts %2,%3" :: "i" (ILI934X_CMD_ADDR), "r" (cmd), "i" (ILI934X_DATA_ADDR), "r" (data)  : "memory");
+
+#endif
