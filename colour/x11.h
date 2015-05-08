@@ -348,12 +348,3 @@
 #define YELLOW_2            0xEF60
 #define YELLOW_3            0xCE60
 #define YELLOW_4            0x8C40
-/*
-  Copyright 2015 Klaus-Peter Zauner
-  At your option this work is licensed under a Creative Commons
-  Attribution-NonCommercial 3.0 Unported License [1], or under a
-  Creative Commons Attribution-ShareAlike 3.0 Unported License [2].
-  [1]: See: http://creativecommons.org/licenses/by-nc/3.0/
-  [2]: See: http://creativecommons.org/licenses/by-sa/3.0/
-  =================================================================
-*/
