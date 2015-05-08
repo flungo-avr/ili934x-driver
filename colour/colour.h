@@ -25,5 +25,12 @@
 #ifndef ILI934X_COLOUR_COLOUR
   #define ILI934X_COLOUR_COLOUR 1
 
+  /* 16 bit colour (5-6-5) */
+  typedef uint16_t lcd_colour16;
+  /* 8 bit colour (3-3-2) */
+  typedef uint8_t  lcd_colour8;
+
   #define colour_rgb(r, g, b) (((r >> 3) << 5 | (g >> 2)) << 6) | (b >> 3)
+  #define colour_hex(hex) colour_rgb((hex & 0xFF0000) >> 16, (hex & 0x00FF00) >> 8, (hex & 0x0000FF))
+  #define colour_8to16(col8) (((col & 0xE0) << 13) | ((col & 0x1C) << 8) | ((col & 0x03) << 3))
 #endif
