@@ -69,9 +69,9 @@ void lcd_init() {
 }
 
 void lcd_selectRegion(lcd_region region) {
-  lcd.selection = (region.right - region.left) * (region.bottom - region.top);
   ili934_columnAddrSet(region.left, region.right);
   ili934_pageAddrSet(region.top, region.bottom);
+  lcd.selection = (region.right - region.left) * (region.bottom - region.top);
 }
 
 void lcd_setColour(lcd_colour16 colour) {
@@ -79,5 +79,106 @@ void lcd_setColour(lcd_colour16 colour) {
   ili934_initMemoryWrite();
   for (i = 0; i < lcd.selection; i++) {
     ili934_write_data16(colour);
+  }
+}
+
+void lcd_setPixel(lcd_pixel p, lcd_colour16 colour) {
+  /* Select the point */
+  ili934_columnAddrSet(p.x, p.x);
+  ili934_pageAddrSet(p.y, p.y);
+  /* Set selection size to 1 */
+  lcd.selection = 1;
+  /* Write the colour */
+  ili934_initMemoryWrite();
+  ili934_write_data16(colour);
+}
+
+void lcd_setPixels(lcd_pixel *p, lcd_colour16 *colour, uint16_t pixels) {
+  uint16_t i;
+  /* For each pixel, set pixel */
+  for (i = 0; i < pixels; i++) {
+    lcd_setPixel(*p++, *colour++);
+  }
+}
+
+void lcd_setRegion(lcd_region region, lcd_colour16 colour) {
+  lcd_selectRegion(region);
+  lcd_setPixel(colour);
+}
+
+void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t regions) {
+  uint16_t i;
+  /* For each pixel, set pixel */
+  for (i = 0; i < regions; i++) {
+    lcd_setRegion(*region++, *colour++);
+  }
+}
+
+void lcd_setBitmap(lcd_region region, lcd_colour16 *colour) {
+  /* Select the region */
+  lcd_selectRegion(region);
+  /* Initialise write process */
+  ili934_initMemoryWrite();
+  /* Write to all pixels of region */
+  for (i = 0; i < lcd.selection; i++) {
+    ili934_write_data16(*colour++);
+  }
+}
+
+void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour) {
+  /* Select the region */
+  lcd_selectRegion(region);
+  /* Initialise write process */
+  ili934_initMemoryWrite();
+  /* Write to all pixels of region */
+  for (i = 0; i < lcd.selection; i++) {
+    ili934_write_data16(colour_8to16(*colour++));
+  }
+}
+
+void lcd_setBitmapMono(lcd_region region, uint8_t* data, uint8_t bpc) {
+  uint16_t x = 0, y = 0;
+  uint16_t i, h, w;
+  uint8_t b = 0;
+  h = region.bottom - region.top;
+  w = region.right - region.left;
+  /* Select the region */
+  lcd_selectRegion(region);
+  ili934_initMemoryWrite();
+  for (i = 0; i < lcd.selection; i++) {
+    if (*data++ & (1 << b)) {
+      ili934_write_data16(lcd.foreground)
+    } else {
+      ili934_write_data16(lcd.background)
+    }
+    b = (b + 1) % 8;
+    if (y % bpc == 0 || ++y >= h) {
+      if (++x >= w) {
+        return;
+      }
+    }
+  }
+}
+
+void lcd_setRegionFunction(lcd_region region, lcd_colour16 (f*)(uint16_t x, uint16_t), bool realtive) {
+  uint16_t x, y;
+  uint16_t w, h;
+  /* Select the region */
+  lcd_selectRegion(region);
+  /* Determine the width of the area to write to.
+   * Starting point will be 0 if relative and top-left otherwise
+   */
+  if (relative) {
+    h = region.bottom - region.top;
+    w = region.right - region.left;
+  } else {
+    h = region.bottom;
+    w = region.right;
+  }
+  for (x = relative ? 0 : region.left; x < w; x++) {
+    for (y = relative ? 0 : region.top; y < w; y++) {
+      /* TODO: Check x and y are correct way round */
+      ili934_write_data16(f(x,y));
+    }
   }
 }
