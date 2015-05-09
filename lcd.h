@@ -66,7 +66,7 @@ void lcd_displayOn();
 void lcd_displayOff();
 void lcd_setOrientation(lcd_orientation orient);
 void lcd_setBrightness(uint8_t br);
-void lcd_setFrameRateHz(uint8_t fr);
+void lcd_setFrameRateHz(ili934x_mode mode, uint8_t fr);
 void lcd_selectRegion(lcd_region region);
 void lcd_setColour(lcd_colour16 colour);
 void lcd_setPixel(lcd_point p, lcd_colour16 colour);

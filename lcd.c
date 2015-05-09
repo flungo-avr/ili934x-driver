@@ -98,7 +98,40 @@ void lcd_setBrightness(uint8_t br) {
   /* Configure Timer 2 Fast PWM Mode 3 */
   TCCR2A = _BV(COM2A1) | _BV(WGM21) | _BV(WGM20);
   TCCR2B = _BV(CS20);
-  OCR2A = i;
+  OCR2A = br;
+}
+
+void lcd_setFrameRateHz(ili934x_mode mode, uint8_t fr) {
+  uint8_t divx, rtnx;
+  /* Determine what division ratio is needed */
+  if (fr > ili934x_fr_min(1)) {
+    divx = 0; /* Division Ratio: 1 */
+  } else if (fr > ili934x_fr_min(2)) {
+    divx = 1; /* Division Ratio: 2 */
+  } else if (fr > ili934x_fr_min(4)) {
+    divx = 2; /* Division Ratio: 4 */
+  } else {
+    divx = 3; /* Division Ratio: 8 */
+  }
+  /* Calculate RTNX */
+  rtnx = ILI934X_CLK_PER_LINE / (fr * (1 << divx));
+  /* If RTNX falls outside acceptable range, put it back into the valid range */
+  if (rtnx < ILI934X_RTNX_MIN) {
+    rtnx = ILI934X_RTNX_MIN;
+  } else if (rtnx > ILI934X_RTNX_MAX) {
+    rtnx = ILI934X_RTNX_MAX;
+  }
+  switch (mode) {
+    case NormalMode:
+      ili934x_setNormalFrameRateCtrl(divx, rtnx);
+      break;
+    case IdleMode:
+      ili934x_setIdleFrameRateCtrl(divx, rtnx);
+      break;
+    case PartialMode:
+      ili934x_setPartialFrameRateCtrl(divx, rtnx);
+      break;
+  }
 }
 
 void lcd_selectRegion(lcd_region r) {

@@ -22,23 +22,19 @@
  *
  */
 
-#include <stdbool.h>
-#include "ili934x_const.h"
-#include "ili934x_conf.h"
+/* Constants for the ILI934X driver */
 
-#ifndef ILI934X_LIB_ILI934XH
-#define ILI934X_LIB_ILI934XH 1
 
-#define ILI934X_CLK_PER_LINE            (ILI934X_INTERNAL_OSC_CLK / (ILI934X_VERT_FRONT_PORCH + ILI934X_DRIVING_LINES + ILI934x_VERT_BACK_PORCH))
+#ifndef ILI934X_LIB_ILI934X_CONSTH
+#define ILI934X_LIB_ILI934X_CONSTH 1
 
-#define ili934x_write_cmd(cmd)          asm volatile("sts %0,%1" :: "i" (ILI934X_CMD_ADDR), "r" (cmd) : "memory");
-#define ili934x_write_data(data)        asm volatile("sts %0,%1" :: "i" (ILI934X_DATA_ADDR), "r" (data) : "memory");
-#define ili934x_write_data16(data)      asm volatile("sts %0,%B1 \n\t sts %0,%A1" :: "i" (ILI934X_DATA_ADDR), "r" (data)  : "memory");
-#define ili934x_write_cmd_data(cmd, data) \
-                                        asm volatile("sts %0,%1 \n\t sts %2,%3" :: "i" (ILI934X_CMD_ADDR), "r" (cmd), "i" (ILI934X_DATA_ADDR), "r" (data)  : "memory");
+#define ILI934X_RTNX_MIN                16
+#define ILI934X_RTNX_MAX                31
 
-/* Get the minimum framerate with a given division ratio */
-#define ili934x_fr_min(div)             ILI934X_CLK_PER_LINE / (ILI934X_RTNX_MAX * div)
-#define ili934x_fr_max(div)             ILI934X_CLK_PER_LINE / (ILI934X_RTNX_MIN * div)
+typedef enum {
+  NormalMode,
+  IdleMode,
+  PartialMode
+} ili934x_mode;
 
 #endif

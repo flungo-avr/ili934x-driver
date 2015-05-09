@@ -23,8 +23,14 @@
  *
  */
 
-#define ILI934X_BLC_PIN    4
-#define ILI934X_RESET_PIN  7
+#define ILI934X_BLC_PIN                 4
+#define ILI934X_RESET_PIN               7
 
-#define ILI934X_CMD_ADDR   0x4000
-#define ILI934X_DATA_ADDR  0x4100
+#define ILI934X_CMD_ADDR                0x4000
+#define ILI934X_DATA_ADDR               0x4100
+
+#define ILI934X_INTERNAL_OSC_CLK        615000
+
+#define ILI934X_DRIVING_LINES           320
+#define ILI934X_VERT_FRONT_PORCH        2
+#define ILI934x_VERT_BACK_PORCH         2
