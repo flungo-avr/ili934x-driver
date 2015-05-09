@@ -70,18 +70,18 @@ void lcd_setFrameRateHz(ili934x_mode mode, uint8_t fr);
 void lcd_selectRegion(lcd_region region);
 void lcd_setColour(lcd_colour16 colour);
 void lcd_setPixel(lcd_point p, lcd_colour16 colour);
-void lcd_setPixels(lcd_point *p, lcd_colour16 *colour, uint16_t pixels);
+void lcd_setPixels(lcd_point *p, lcd_colour16 *colour, uint16_t np);
 void lcd_setRegion(lcd_region region, lcd_colour16 colour);
-void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t regions);
+void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t nr);
 void lcd_setBitmap(lcd_region region, lcd_colour16 *colour);
 void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour);
 void lcd_setBitmapMono(lcd_region region, uint8_t *data, uint8_t bpc);
 void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint16_t), bool relative);
 void lcd_clear();
 void lcd_clearPixel(lcd_point p);
-void lcd_clearPixels(lcd_point *p, uint16_t pixels);
+void lcd_clearPixels(lcd_point *p, uint16_t np);
 void lcd_clearRegion(lcd_region region);
-void lcd_clearRegions(lcd_region *region, uint16_t regions);
+void lcd_clearRegions(lcd_region *region, uint16_t nr);
 void lcd_clearRegionFunction(lcd_region region, bool (*f)(uint16_t x, uint16_t), bool relative);
 
 #endif

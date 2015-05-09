@@ -157,10 +157,10 @@ void lcd_setPixel(lcd_point p, lcd_colour16 colour) {
   ili934x_write_data16(colour);
 }
 
-void lcd_setPixels(lcd_point *p, lcd_colour16 *colour, uint16_t pixels) {
+void lcd_setPixels(lcd_point *p, lcd_colour16 *colour, uint16_t np) {
   uint16_t i;
   /* For each pixel, set pixel */
-  for (i = 0; i < pixels; i++) {
+  for (i = 0; i < np; i++) {
     lcd_setPixel(*p++, *colour++);
   }
 }
@@ -170,10 +170,10 @@ void lcd_setRegion(lcd_region region, lcd_colour16 colour) {
   lcd_setColour(colour);
 }
 
-void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t regions) {
+void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t nr) {
   uint16_t i;
   /* For each pixel, set pixel */
-  for (i = 0; i < regions; i++) {
+  for (i = 0; i < nr; i++) {
     lcd_setRegion(*region++, *colour++);
   }
 }
@@ -273,5 +273,54 @@ void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint
 
 void lcd_clear() {
   lcd_region display = {0, LCD_WIDTH - 1, 0, LCD_HEIGHT - 1};
-  lcd_setRegion(display, 0);
+  lcd_setRegion(display, lcd.background);
+}
+
+inline void lcd_clearPixel(lcd_point p) {
+  lcd_setPixel(p, lcd.background);
+}
+
+void lcd_clearPixels(lcd_point *p, uint16_t np) {
+  uint16_t i;
+  /* For each pixel, set pixel */
+  for (i = 0; i < np; i++) {
+    lcd_clearPixel(*p++);
+  }
+}
+
+inline void lcd_clearRegion(lcd_region region) {
+  lcd_setRegion(region, lcd.background);
+}
+
+void lcd_clearRegions(lcd_region *region, uint16_t nr) {
+  uint16_t i;
+  /* For each pixel, set pixel */
+  for (i = 0; i < nr; i++) {
+    lcd_clearRegion(*region++);
+  }
+}
+
+void lcd_clearRegionFunction(lcd_region region, bool (*f)(uint16_t x, uint16_t), bool relative) {
+  lcd_point p;
+  uint16_t w, h;
+  /* Select the region */
+  lcd_selectRegion(region);
+  /* Determine the width of the area to write to.
+   * Starting point will be 0 if relative and top-left otherwise
+   */
+  if (relative) {
+    h = region.bottom - region.top;
+    w = region.right - region.left;
+  } else {
+    h = region.bottom;
+    w = region.right;
+  }
+  for (p.x = relative ? 0 : region.left; p.x < w; p.x++) {
+    for (p.y = relative ? 0 : region.top; p.y < h; p.y++) {
+      /* TODO: Check x and y are correct way round */
+      if (f(p.x,p.y)) {
+        lcd_clearPixel(p);
+      };
+    }
+  }
 }
