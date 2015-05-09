@@ -14,6 +14,17 @@ Usage
 
 This library is designed for use with AVR that support extended memory interface with 10 bit addressing connected to the ILI934X driver via an 8 bit parrallel data bus. This is not planned to be customisable in the forseable future but may be part of the long term roadmap to implement SPI and 16/18bit bus support.
 
+### Configuration
+
+To configure, you will need to have a file names `ili934x_conf.h` in your build path. A sample of this is provided as `ili934x_conf.sample.h`. Configuration is made by defining macros for settings that will enable or disable features.
+
+The configuration options currently include:
+
+-	**ILI934X_BLC_PIN** - The backlight pin used for the LCD Driver, currently assumed to be on `PORTB`
+-	**ILI934X_RESET_PIN** - The reset pin used for the LCD Driver, currently assumed to be on `PORTC`
+-	**ILI934X_CMD_ADDR** - The address to write 8 bit commands to that will be sent to the LCD Driver via the extended memory interface
+-	**ILI934X_DATA_ADDR** - The address to write data (command parameters) to that will be sent to the LCD Driver via the extended memory interface
+
 Libraries
 ---------
 
