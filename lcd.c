@@ -100,11 +100,6 @@ void lcd_selectRegion(lcd_region r) {
 }
 
 void lcd_setColour(lcd_colour16 colour) {
-  /*uint16_t i;
-  ili934x_initMemoryWrite();
-  for (i = 0; i < lcd.selection; i++) {
-    ili934x_write_data16(colour);
-  }*/
   uint16_t x, y;
   ili934x_write_cmd(ILI934X_RAMWR);
   for(x=lcd.selection.left; x<=lcd.selection.right; x++)
