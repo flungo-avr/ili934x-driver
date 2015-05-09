@@ -31,6 +31,9 @@
 #ifndef ILI934X_LIB_LCDH
 #define ILI934X_LIB_LCDH 1
 
+#define LCD_WIDTH  240
+#define LCD_HEIGHT 320
+
 typedef enum {
   North = 0,
   West = 90,
@@ -42,7 +45,7 @@ typedef enum {
 
 typedef struct {
   uint16_t x, y;
-} lcd_pixel;
+} lcd_point;
 
 typedef struct {
   uint16_t left, right;
@@ -52,20 +55,22 @@ typedef struct {
 typedef struct {
   uint16_t width, height;
   lcd_orientation orient;
-  uint16_t selection;
+  lcd_region selection;
   lcd_colour16 foreground, background;
 } lcd_display;
 
 extern lcd_display lcd;
 
 void lcd_init();
+void lcd_displayOn();
+void lcd_displayOff();
 void lcd_setOrientation(lcd_orientation orient);
 void lcd_setBrightness(uint8_t i);
 void lcd_setFrameRateHz(uint8_t fr);
 void lcd_selectRegion(lcd_region region);
 void lcd_setColour(lcd_colour16 colour);
-void lcd_setPixel(lcd_pixel p, lcd_colour16 colour);
-void lcd_setPixels(lcd_pixel *p, lcd_colour16 *colour, uint16_t pixels);
+void lcd_setPixel(lcd_point p, lcd_colour16 colour);
+void lcd_setPixels(lcd_point *p, lcd_colour16 *colour, uint16_t pixels);
 void lcd_setRegion(lcd_region region, lcd_colour16 colour);
 void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t regions);
 void lcd_setBitmap(lcd_region region, lcd_colour16 *colour);
@@ -73,10 +78,12 @@ void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour);
 void lcd_setBitmapMono(lcd_region region, uint8_t *data, uint8_t bpc);
 void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint16_t), bool relative);
 void lcd_clear();
-void lcd_clearPixel(lcd_pixel p);
-void lcd_clearPixels(lcd_pixel *p, uint16_t pixels);
+void lcd_clearPixel(lcd_point p);
+void lcd_clearPixels(lcd_point *p, uint16_t pixels);
 void lcd_clearRegion(lcd_region region);
 void lcd_clearRegions(lcd_region *region, uint16_t regions);
 void lcd_clearRegionFunction(lcd_region region, bool (*f)(uint16_t x, uint16_t), bool relative);
+
+void fill_rectangle(lcd_region r, uint16_t col);
 
 #endif

@@ -27,6 +27,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include "lcd.h"
+#include "colour/basic.h"
 
 lcd_display lcd;
 
@@ -39,6 +40,8 @@ void lcd_init() {
   /* Set backlight pin to output */
   DDRB |= _BV(ILI934X_BLC_PIN);
   _delay_ms(1);
+  /* Backlight off initially */
+  PORTB &= ~_BV(ILI934X_BLC_PIN);
   /* Reset the display to synchronise initialisation */
   PORTC &= ~_BV(ILI934X_RESET_PIN);
   _delay_ms(20);
@@ -60,41 +63,65 @@ void lcd_init() {
   ili934x_driverTimingCtrlA(1,0,0,0);
   /* Set RGB Interface Format (DPI) to 16 bits / pixel */
   /* Set MCU Interface Format (DBI) to 16 bits / pixel */
-  ili934x_pixelFormatSet(0x05, 0x05);
+  ili934x_pixelFormatSet(5, 5);     /* 16bit/pixel */
+  /* Init lcd object */
+  lcd.width = LCD_WIDTH;
+  lcd.height = LCD_HEIGHT;
+  lcd.orient = North;
+  lcd.background = BLACK;
+  lcd.foreground = WHITE;
+  /* Clear contents of display */
+  lcd_clear();
   /* Enable Tearing Effect Line */
   ili934x_tearingEffectOn(0);
   /* Enable falling edge detect on External Interrupt Control Register B ISC6 */
   EICRB |= _BV(ISC61);
+}
+
+void lcd_displayOn() {
+  /* Enable display */
+  ili934x_displayOn();
+  _delay_ms(30);
   /* Enable the LCD backlight */
   PORTB |= _BV(ILI934X_BLC_PIN);
 }
 
-void lcd_selectRegion(lcd_region region) {
-  ili934x_columnAddrSet(region.left, region.right);
-  ili934x_pageAddrSet(region.top, region.bottom);
-  lcd.selection = (region.right - region.left) * (region.bottom - region.top);
+void lcd_displayOff() {
+  /* Disable the LCD backlight */
+  PORTB &= ~_BV(ILI934X_BLC_PIN);
+  /* Disable Display */
+  ili934x_displayOff();
+}
+
+void lcd_selectRegion(lcd_region r) {
+  ili934x_columnAddrSet(r.left, r.right);
+  ili934x_pageAddrSet(r.top, r.bottom);
+  lcd.selection = r;
 }
 
 void lcd_setColour(lcd_colour16 colour) {
-  uint16_t i;
+  /*uint16_t i;
   ili934x_initMemoryWrite();
   for (i = 0; i < lcd.selection; i++) {
     ili934x_write_data16(colour);
-  }
+  }*/
+  uint16_t x, y;
+  ili934x_write_cmd(ILI934X_RAMWR);
+  for(x=lcd.selection.left; x<=lcd.selection.right; x++)
+    for(y=lcd.selection.top; y<=lcd.selection.bottom; y++)
+          ili934x_write_data16(colour);
 }
 
-void lcd_setPixel(lcd_pixel p, lcd_colour16 colour) {
+void lcd_setPixel(lcd_point p, lcd_colour16 colour) {
   /* Select the point */
-  ili934x_columnAddrSet(p.x, p.x);
-  ili934x_pageAddrSet(p.y, p.y);
-  /* Set selection size to 1 */
-  lcd.selection = 1;
+  lcd_region r = {p.x, p.x, p.y, p.y};
+  lcd_selectRegion(r);
   /* Write the colour */
   ili934x_initMemoryWrite();
   ili934x_write_data16(colour);
 }
 
-void lcd_setPixels(lcd_pixel *p, lcd_colour16 *colour, uint16_t pixels) {
+void lcd_setPixels(lcd_point *p, lcd_colour16 *colour, uint16_t pixels) {
   uint16_t i;
   /* For each pixel, set pixel */
   for (i = 0; i < pixels; i++) {
@@ -122,8 +149,11 @@ void lcd_setBitmap(lcd_region region, lcd_colour16 *colour) {
   /* Initialise write process */
   ili934x_initMemoryWrite();
   /* Write to all pixels of region */
-  for (i = 0; i < lcd.selection; i++) {
-    ili934x_write_data16(*colour++);
+  uint16_t x, y;
+  for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
+      for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
+      ili934x_write_data16(*colour++);
+    }
   }
 }
 
@@ -134,8 +164,11 @@ void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour) {
   /* Initialise write process */
   ili934x_initMemoryWrite();
   /* Write to all pixels of region */
-  for (i = 0; i < lcd.selection; i++) {
-    ili934x_write_data16(colour_8to16(*colour++));
+  uint16_t x, y;
+  for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
+      for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
+      ili934x_write_data16(colour_8to16(*colour++));
+    }
   }
 }
 
@@ -148,16 +181,19 @@ void lcd_setBitmapMono(lcd_region region, uint8_t* data, uint8_t bpc) {
   /* Select the region */
   lcd_selectRegion(region);
   ili934x_initMemoryWrite();
-  for (i = 0; i < lcd.selection; i++) {
-    if (*data++ & (1 << b)) {
-      ili934x_write_data16(lcd.foreground)
-    } else {
-      ili934x_write_data16(lcd.background)
-    }
-    b = (b + 1) % 8;
-    if (y % bpc == 0 || ++y >= h) {
-      if (++x >= w) {
-        return;
+  uint16_t xv, yv;
+  for(xv=lcd.selection.left; xv<=lcd.selection.right; xv++) {
+      for(yv=lcd.selection.top; yv<=lcd.selection.bottom; yv++) {
+      if (*data++ & (1 << b)) {
+        ili934x_write_data16(lcd.foreground)
+      } else {
+        ili934x_write_data16(lcd.background)
+      }
+      b = (b + 1) % 8;
+      if (y % bpc == 0 || ++y >= h) {
+        if (++x >= w) {
+          return;
+        }
       }
     }
   }
@@ -184,4 +220,9 @@ void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint
       ili934x_write_data16(f(x,y));
     }
   }
+}
+
+void lcd_clear() {
+  lcd_region display = {0, LCD_WIDTH - 1, 0, LCD_HEIGHT - 1};
+  lcd_setRegion(display, 0);
 }
