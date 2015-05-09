@@ -165,6 +165,23 @@ void lcd_setPixels(lcd_point *p, lcd_colour16 *colour, uint16_t np) {
   }
 }
 
+void lcd_setPixels8bit(lcd_point *p, lcd_colour8 *colour, uint16_t np) {
+  uint16_t i;
+  /* For each pixel, set pixel */
+  for (i = 0; i < np; i++) {
+    lcd_setPixel(*p++, colour_8to16(*colour));
+    colour++;
+  }
+}
+
+void lcd_setPixelsMono(lcd_point *p, lcd_colour16 colour, uint16_t np) {
+  uint16_t i;
+  /* For each pixel, set pixel */
+  for (i = 0; i < np; i++) {
+    lcd_setPixel(*p++, colour);
+  }
+}
+
 void lcd_setRegion(lcd_region region, lcd_colour16 colour) {
   lcd_selectRegion(region);
   lcd_setColour(colour);
@@ -175,6 +192,23 @@ void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t nr) {
   /* For each pixel, set pixel */
   for (i = 0; i < nr; i++) {
     lcd_setRegion(*region++, *colour++);
+  }
+}
+
+void lcd_setRegions8bit(lcd_region *region, lcd_colour8 *colour, uint16_t nr) {
+  uint16_t i;
+  /* For each pixel, set pixel */
+  for (i = 0; i < nr; i++) {
+    lcd_setRegion(*region++, colour_8to16(*colour));
+    colour++;
+  }
+}
+
+void lcd_setRegionsMono(lcd_region *region, lcd_colour16 colour, uint16_t nr) {
+  uint16_t i;
+  /* For each pixel, set pixel */
+  for (i = 0; i < nr; i++) {
+    lcd_setRegion(*region++, colour);
   }
 }
 
@@ -201,7 +235,8 @@ void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour) {
   /* Write to all pixels of region */
   for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
       for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
-      ili934x_write_data16(colour_8to16(*colour++));
+      ili934x_write_data16(colour_8to16(*colour));
+      colour++;
     }
   }
 }
