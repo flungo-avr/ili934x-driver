@@ -30,9 +30,22 @@ Libraries
 
 This driver is designed to be expanded with the use of additional libraries to provide the functionality you need. Libraries which I have created for use with this driver include:
 
--	AVR Text Library - A library to provide text output to the display in a variety of fonts and styles
--	AVR Graphics 2D Library - A library to aid with the drawing of 2D graphics in an efficient manner
--	AVR Graphing Library - A library to plot various types of graphs
+-	**AVR LCD Text Library** - A library to provide text output to the display in a variety of fonts and styles
+-	**AVR LCD Graphics 2D Library** - A library to aid with the drawing of 2D graphics in an efficient manner
+-	**AVR LCD Graphing Library** - A library to plot various types of graphs
+
+All the libraries are designed to be used as widgets to provide compatability between each other.
+
+### Planned Libraries
+
+-	**ILI934X SSL (Software Scrolling Library)** - A library to aid with software scrolling of regions of the screen
+-	**ILI934X ABC (Automatic Backlight Control)** - Library to provide automatic backlight adjustment using an LDR light sensor
+-	**ILI934X ARC (Accelerometer Rotation Control)** - Library to provide automatic rotation of display using an accelerometer
+-	**AVR LCD UI Library** - A library to provide UI componants to build graphical user interfaces
+-	**AVR LCD Animation Library** - A library to aid with having multiple animated components on the display
+-	**AVR LCD Asset Library** - A library of 2D static and animated graphics and glyphs for use in applications
+-	**AVR LCD Graphics 3D Library** - A library to aid with the drawing of 3D graphics in an efficient manner
+-	**AVR LCD Graphics Image Library** - A library to aid with the drawing of bitmap, gif, png and jpeg graphics in an efficient manner
 
 Example projects
 ----------------
