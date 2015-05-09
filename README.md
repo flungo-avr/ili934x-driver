@@ -57,5 +57,6 @@ Planned features
 
 Features currently in development include:
 
+-	Constants for every constant defined in the datasheet
 -	GRAM read functionality
 -	Hardware scrolling
