@@ -143,13 +143,12 @@ void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t regions) 
 }
 
 void lcd_setBitmap(lcd_region region, lcd_colour16 *colour) {
-  uint16_t i;
+  uint16_t x, y;
   /* Select the region */
   lcd_selectRegion(region);
   /* Initialise write process */
   ili934x_initMemoryWrite();
   /* Write to all pixels of region */
-  uint16_t x, y;
   for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
       for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
       ili934x_write_data16(*colour++);
@@ -158,13 +157,12 @@ void lcd_setBitmap(lcd_region region, lcd_colour16 *colour) {
 }
 
 void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour) {
-  uint16_t i;
+  uint16_t x, y;
   /* Select the region */
   lcd_selectRegion(region);
   /* Initialise write process */
   ili934x_initMemoryWrite();
   /* Write to all pixels of region */
-  uint16_t x, y;
   for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
       for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
       ili934x_write_data16(colour_8to16(*colour++));
@@ -173,28 +171,43 @@ void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour) {
 }
 
 void lcd_setBitmapMono(lcd_region region, uint8_t* data, uint8_t bpc) {
-  uint16_t x = 0, y = 0;
-  uint16_t i, h, w;
+  uint16_t x, y, w, h;
   uint8_t b = 0;
-  h = region.bottom - region.top;
   w = region.right - region.left;
+  h = region.bottom - region.top;
   /* Select the region */
   lcd_selectRegion(region);
   ili934x_initMemoryWrite();
-  uint16_t xv, yv;
-  for(xv=lcd.selection.left; xv<=lcd.selection.right; xv++) {
-      for(yv=lcd.selection.top; yv<=lcd.selection.bottom; yv++) {
-      if (*data++ & (1 << b)) {
-        ili934x_write_data16(lcd.foreground)
-      } else {
-        ili934x_write_data16(lcd.background)
-      }
-      b = (b + 1) % 8;
-      if (y % bpc == 0 || ++y >= h) {
-        if (++x >= w) {
-          return;
+  /* Iterate through the region */
+  for(x=0; x<w; x++) {
+    for(y=0; y<h; y++) {
+      /* If we have bits defined in the data, use those */
+      if (y < bpc) {
+        /* Read the b'th bit of the data */
+        if (*data & (1 << b)) {
+          ili934x_write_data16(lcd.foreground)
+        } else {
+          ili934x_write_data16(lcd.background)
+        }
+        /* Increment the bit we are reading */
+        b = (b + 1) % 8;
+        /* If we have wrapped back arround, we want the next byte */
+        if (b == 0) {
+          data++;
         }
       }
+      /* Otherwise assume background */
+      else {
+        ili934x_write_data16(lcd.background)
+      }
+    }
+    /* If we haven't used all the bits (i.e. h < bpc), keep incrementing b */
+    while(y < bpc) {
+      b = (b + 1) % 8;
+      if (b == 0) {
+        data++;
+      }
+      y++;
     }
   }
 }

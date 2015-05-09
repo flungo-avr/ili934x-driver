@@ -84,6 +84,4 @@ void lcd_clearRegion(lcd_region region);
 void lcd_clearRegions(lcd_region *region, uint16_t regions);
 void lcd_clearRegionFunction(lcd_region region, bool (*f)(uint16_t x, uint16_t), bool relative);
 
-void fill_rectangle(lcd_region r, uint16_t col);
-
 #endif
