@@ -93,6 +93,14 @@ void lcd_displayOff() {
   ili934x_displayOff();
 }
 
+void lcd_setBrightness(uint8_t br) {
+  /* TODO: Make generic using LazyAVR */
+  /* Configure Timer 2 Fast PWM Mode 3 */
+  TCCR2A = _BV(COM2A1) | _BV(WGM21) | _BV(WGM20);
+  TCCR2B = _BV(CS20);
+  OCR2A = i;
+}
+
 void lcd_selectRegion(lcd_region r) {
   ili934x_columnAddrSet(r.left, r.right);
   ili934x_pageAddrSet(r.top, r.bottom);
