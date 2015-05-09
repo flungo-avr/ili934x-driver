@@ -7,6 +7,13 @@ I have tried to implement the library in a lightweight fashion and the footprint
 
 More documentation will be added as the library develops.
 
+Usage
+-----
+
+### Compatability/Constraints
+
+This library is designed for use with AVR that support extended memory interface with 10 bit addressing connected to the ILI934X driver via an 8 bit parrallel data bus. This is not planned to be customisable in the forseable future but may be part of the long term roadmap to implement SPI and 16/18bit bus support.
+
 Libraries
 ---------
 
