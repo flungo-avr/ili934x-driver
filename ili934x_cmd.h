@@ -141,21 +141,21 @@
 #define ili934x_displayOff()            ili934x_write_cmd(ILI934X_DISPOFF)
 #define ili934x_displayOn()             ili934x_write_cmd(ILI934X_DISPON)
 #define ili934x_columnAddrSet(SC, EC)   ili934x_write_cmd(ILI934X_CASET); \
-                                        ili934x_write_data(SC); \
-                                        ili934x_write_data(EC)
+                                        ili934x_write_data16(SC); \
+                                        ili934x_write_data16(EC)
 #define ili934x_pageAddrSet(SP, EP)     ili934x_write_cmd(ILI934X_PASET); \
-                                        ili934x_write_data(SP); \
-                                        ili934x_write_data(EP)
+                                        ili934x_write_data16(SP); \
+                                        ili934x_write_data16(EP)
 #define ili934x_initMemoryWrite()       ili934x_write_cmd(ILI934X_RAMWR)
 #define ili934x_partialArea(SR, ER)     ili934x_write_cmd(ILI934X_PLTAR); \
-                                        ili934x_write_data(SR); \
-                                        ili934x_write_data(ER)
+                                        ili934x_write_data16(SR); \
+                                        ili934x_write_data16(ER)
 #define ili934x_initMemoryRead()        ili934x_write_cmd(ILI934X_RAMRD)
 #define ili934x_vertScrollDef(TFA, VSA, BFA) \
                                         ili934x_write_cmd(ILI934X_VSCRDEF); \
-                                        ili934x_write_data(TFA); \
-                                        ili934x_write_data(VSA); \
-                                        ili934x_write_data(BFA)
+                                        ili934x_write_data16(TFA); \
+                                        ili934x_write_data16(VSA); \
+                                        ili934x_write_data16(BFA)
 #define ili934x_tearingEffectOff()      ili934x_write_cmd(ILI934X_TEOFF)
 #define ili934x_tearingEffectOn(M)      ili934x_write_cmd_data(ILI934X_TEOFF, M)
 #define ili934x_memoryAccessControl(MY, MX, MV, ML, BGR, MH) \
