@@ -158,9 +158,11 @@ void lcd_selectRegion(lcd_region r) {
 void lcd_setColour(lcd_colour16 colour) {
   uint16_t x, y;
   ili934x_write_cmd(ILI934X_RAMWR);
-  for(x=lcd.selection.left; x<=lcd.selection.right; x++)
-    for(y=lcd.selection.top; y<=lcd.selection.bottom; y++)
-          ili934x_write_data16(colour);
+  for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
+    for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
+      ili934x_write_data16(colour);
+    }
+  }
 }
 
 void lcd_setPixel(lcd_point p, lcd_colour16 colour) {
@@ -234,8 +236,8 @@ void lcd_setBitmap(lcd_region region, lcd_colour16 *colour) {
   /* Initialise write process */
   ili934x_initMemoryWrite();
   /* Write to all pixels of region */
-  for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
-      for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
+  for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
+    for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
       ili934x_write_data16(*colour++);
     }
   }
@@ -248,8 +250,8 @@ void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour) {
   /* Initialise write process */
   ili934x_initMemoryWrite();
   /* Write to all pixels of region */
-  for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
-      for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
+  for(y=lcd.selection.top; y<=lcd.selection.bottom; y++) {
+    for(x=lcd.selection.left; x<=lcd.selection.right; x++) {
       ili934x_write_data16(colour_8to16(*colour));
       colour++;
     }
@@ -313,9 +315,9 @@ void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint
     h = region.bottom;
     w = region.right;
   }
-  for (x = relative ? 0 : region.left; x < w; x++) {
-    for (y = relative ? 0 : region.top; y < h; y++) {
-      /* TODO: Check x and y are correct way round */
+  ili934x_initMemoryWrite();
+  for (y = relative ? 0 : region.top; y < h; y++) {
+    for (x = relative ? 0 : region.left; x < w; x++) {
       ili934x_write_data16(f(x,y));
     }
   }
@@ -365,9 +367,8 @@ void lcd_clearRegionFunction(lcd_region region, bool (*f)(uint16_t x, uint16_t),
     h = region.bottom;
     w = region.right;
   }
-  for (p.x = relative ? 0 : region.left; p.x < w; p.x++) {
-    for (p.y = relative ? 0 : region.top; p.y < h; p.y++) {
-      /* TODO: Check x and y are correct way round */
+  for (p.y = relative ? 0 : region.top; p.y < h; p.y++) {
+    for (p.x = relative ? 0 : region.left; p.x < w; p.x++) {
       if (f(p.x,p.y)) {
         lcd_clearPixel(p);
       };
