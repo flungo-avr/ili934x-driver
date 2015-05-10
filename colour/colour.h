@@ -22,6 +22,8 @@
  *
  */
 
+#include <stdint.h>
+
 #ifndef ILI934X_COLOUR_COLOUR
   #define ILI934X_COLOUR_COLOUR 1
 
