@@ -1,1 +1,6 @@
+# Ignore Doxygen output
+/html/
+/latex/
+
+# Ignore configuration file
 ili934x_conf.h
