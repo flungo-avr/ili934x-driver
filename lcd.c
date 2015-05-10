@@ -64,9 +64,24 @@ void lcd_init() {
   /* Set RGB Interface Format (DPI) to 16 bits / pixel */
   /* Set MCU Interface Format (DBI) to 16 bits / pixel */
   ili934x_pixelFormatSet(5, 5);     /* 16bit/pixel */
+  #if (ILI934X_ROW_ADDR_ORDER || ILI934X_COL_ADDR_ORDER || ILI934X_ROW_COL_EXCHANGE || ILI934X_VERT_REFRESH_ORDER || ILI934X_RGB_BGR_ORDER || ILI934X_HORZ_REFRESH_ORDER)
+  ili934x_memoryAccessControl(
+    ILI934X_ROW_ADDR_ORDER,
+    ILI934X_COL_ADDR_ORDER,
+    ILI934X_ROW_COL_EXCHANGE,
+    ILI934X_VERT_REFRESH_ORDER,
+    ILI934X_RGB_BGR_ORDER,
+    ILI934X_HORZ_REFRESH_ORDER
+  );
+  #endif
   /* Init lcd object */
+  #if ILI934X_ROW_COL_EXCHANGE
+  lcd.width = LCD_HEIGHT;
+  lcd.height = LCD_WIDTH;
+  #else
   lcd.width = LCD_WIDTH;
   lcd.height = LCD_HEIGHT;
+  #endif
   lcd.orient = North;
   lcd.background = BLACK;
   lcd.foreground = WHITE;
