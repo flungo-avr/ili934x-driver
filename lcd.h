@@ -27,7 +27,7 @@
 #include <stdint.h>
 #include "ili934x.h"
 #include "ili934x_cmd.h"
-#include "colour/colour.h"
+#include "lcd_colour_basic.h"
 
 #ifndef ILI934X_LIB_LCDH
 #define ILI934X_LIB_LCDH 1

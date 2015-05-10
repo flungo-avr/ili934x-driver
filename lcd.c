@@ -27,7 +27,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include "lcd.h"
-#include "colour/basic.h"
+#include "lcd_colour_basic.h"
 
 lcd_display lcd;
 
