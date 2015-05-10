@@ -23,6 +23,9 @@
  *
  */
 
+#ifndef ILI934X_CONF
+#define ILI934X_CONF 1
+
 #define ILI934X_BLC_PIN                 4
 #define ILI934X_RESET_PIN               7
 
@@ -34,3 +37,14 @@
 #define ILI934X_DRIVING_LINES           320
 #define ILI934X_VERT_FRONT_PORCH        2
 #define ILI934X_VERT_BACK_PORCH         2
+
+/* Default MADCTL Settings */
+/* Direction defined here will be treated as North */
+#define ILI934X_ROW_ADDR_ORDER          1
+#define ILI934X_COL_ADDR_ORDER          1
+#define ILI934X_ROW_COL_EXCHANGE        1
+#define ILI934X_VERT_REFRESH_ORDER      0
+#define ILI934X_RGB_BGR_ORDER           1
+#define ILI934X_HORZ_REFRESH_ORDER      0
+
+#endif
