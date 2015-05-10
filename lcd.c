@@ -322,7 +322,7 @@ void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint
 }
 
 void lcd_clear() {
-  lcd_region display = {0, LCD_WIDTH - 1, 0, LCD_HEIGHT - 1};
+  lcd_region display = {0, lcd.width - 1, 0, lcd.height - 1};
   lcd_setRegion(display, lcd.background);
 }
 
