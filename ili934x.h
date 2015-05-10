@@ -29,7 +29,7 @@
 #ifndef ILI934X_LIB_ILI934XH
 #define ILI934X_LIB_ILI934XH 1
 
-#define ILI934X_CLK_PER_LINE            (ILI934X_INTERNAL_OSC_CLK / (ILI934X_VERT_FRONT_PORCH + ILI934X_DRIVING_LINES + ILI934x_VERT_BACK_PORCH))
+#define ILI934X_CLK_PER_LINE            (ILI934X_INTERNAL_OSC_CLK / (ILI934X_VERT_FRONT_PORCH + ILI934X_DRIVING_LINES + ILI934X_VERT_BACK_PORCH))
 
 #define ili934x_write_cmd(cmd)          asm volatile("sts %0,%1" :: "i" (ILI934X_CMD_ADDR), "r" (cmd) : "memory");
 #define ili934x_write_data(data)        asm volatile("sts %0,%1" :: "i" (ILI934X_DATA_ADDR), "r" (data) : "memory");

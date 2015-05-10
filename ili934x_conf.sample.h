@@ -33,4 +33,4 @@
 
 #define ILI934X_DRIVING_LINES           320
 #define ILI934X_VERT_FRONT_PORCH        2
-#define ILI934x_VERT_BACK_PORCH         2
+#define ILI934X_VERT_BACK_PORCH         2
