@@ -23,6 +23,13 @@
  *
  */
 
+/**
+ * @file lcd.h
+ * @author Fabrizio Lungo <fab@lungo.co.uk>
+ * @brief Methods for an LCD that uses the ILI934X display driver.
+ *
+ */
+
 #include <stdbool.h>
 #include <stdint.h>
 #include "ili934x.h"
