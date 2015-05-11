@@ -62,6 +62,17 @@ typedef struct {
 
 extern lcd_display lcd;
 
+/**
+ * Initialise the LCD and setup the lcd_display structure. Uses the
+ * configuration to set up the display in a default state. When method returns,
+ * display is not on and will need to be activated with lcd_displayOn(). This
+ * allows you to perform any further configuration tasks at runtime before the
+ * display is enabled or to prepare the display at an earlier stage to activate
+ * later.
+ *
+ * @see lcd_display
+ *
+ */
 void lcd_init();
 void lcd_displayOn();
 void lcd_displayOff();
