@@ -103,22 +103,35 @@ void lcd_displayOff();
 /**
  * Set the current orientation of the display. When the orientation is changed,
  * the screen is cleared.
+ *
+ * @param[in] orient The orientation to set the display to
  */
 void lcd_setOrientation(lcd_orientation orient);
 
 /**
  * Set the brightness level of the display.
+ *
+ * @param[in] br the brightness as a value from `0` to `255` where `255` is the
+ * brightest.
  */
 void lcd_setBrightness(uint8_t br);
 
 /**
- * Set the framerate of the display in Hz.
+ * Set the framerate of the display in Hz. Calculates the configuration to
+ * provide the framerate that is closest to the desired framerate given in
+ * hertz (Hz).
+ *
+ * @param[in] mode The mode you want to set the framerate for.
+ * @param[in] fr   The desired framerate in Hz.
+ * @see ili934x_mode
  */
 void lcd_setFrameRateHz(ili934x_mode mode, uint8_t fr);
 
 /**
  * Sets the selected region of the display. lcd_setColour(lcd_colour16) can then
  * be used to change the colour of this region.
+ *
+ * @param[in] region the region of the display to be selected
  */
 void lcd_selectRegion(lcd_region region);
 
@@ -127,11 +140,17 @@ void lcd_selectRegion(lcd_region region);
  * buff over setRegion as the region does not have to be reselected in order to
  * change the colour. Has limited use case since it can only be applied to the
  * last selected region
+ *
+ * @param[in] colour the colour to set the previously selected region to
  */
 void lcd_setColour(lcd_colour16 colour);
 
 /**
  * Set an individual pixel to a specific colour.
+ *
+ * @param p      the co-ordinates of the pixel to colour from the top left corner of
+ * the display
+ * @param colour the colour to set the pixel to
  */
 void lcd_setPixel(lcd_point p, lcd_colour16 colour);
 
@@ -140,6 +159,10 @@ void lcd_setPixel(lcd_point p, lcd_colour16 colour);
  * `p` with index `i` the pixel will be coloured with the colour with the
  * corresponding colour of index `i` from the `colours` array. Both `p` and
  * `colours` should have at least `np` elements.
+ *
+ * @param p       pointer to the first element in an array of points
+ * @param colours pointer to the first element in an array of colours
+ * @param np      the number of points in the array
  */
 void lcd_setPixels(lcd_point *p, lcd_colour16 *colours, uint16_t np);
 /**
@@ -149,12 +172,20 @@ void lcd_setPixels(lcd_point *p, lcd_colour16 *colours, uint16_t np);
  * `colours` should have at least `np` elements.
  *
  * For large arrays of points, using 8-bit colour will reduce the memory
- * overhead
+ * overhead.
+ *
+ * @param p       pointer to the first element in an array of points
+ * @param colours pointer to the first element in an array of colours
+ * @param np      the number of points in the array
  */
 void lcd_setPixels8bit(lcd_point *p, lcd_colour8 *colours, uint16_t np);
 /**
  * Colours all of the pixels in the array `p` in the colour `colour`. The length
  * of the array `p` should be at least `np` elements long.
+ *
+ * @param p       pointer to the first element in an array of points
+ * @param colour the colour to set the pixels to
+ * @param np      the number of points in the array
  */
 void lcd_setPixelsMono(lcd_point *p, lcd_colour16 colour, uint16_t np);
 
