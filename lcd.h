@@ -39,7 +39,13 @@
 #ifndef ILI934X_LIB_LCDH
 #define ILI934X_LIB_LCDH 1
 
+/**
+ * Width of the LCD Display in pixels at the default orientation.
+ */
 #define LCD_WIDTH  240
+/**
+ * Height of the LCD Display in pixels at the default orientation.
+ */
 #define LCD_HEIGHT 320
 
 typedef enum {
@@ -67,6 +73,9 @@ typedef struct {
   lcd_colour16 foreground, background;
 } lcd_display;
 
+/**
+ * Globally accessible lcd_display structure for the LCD display connected
+ */
 extern lcd_display lcd;
 
 /**
@@ -81,17 +90,74 @@ extern lcd_display lcd;
  *
  */
 void lcd_init();
+
+/**
+ * Turns on the display and enables the backlight.
+ */
 void lcd_displayOn();
+/**
+ * Turns off the display and disables the backlight.
+ */
 void lcd_displayOff();
+
+/**
+ * Set the current orientation of the display. When the orientation is changed,
+ * the screen is cleared.
+ */
 void lcd_setOrientation(lcd_orientation orient);
+
+/**
+ * Set the brightness level of the display.
+ */
 void lcd_setBrightness(uint8_t br);
+
+/**
+ * Set the framerate of the display in Hz.
+ */
 void lcd_setFrameRateHz(ili934x_mode mode, uint8_t fr);
+
+/**
+ * Sets the selected region of the display. lcd_setColour(lcd_colour16) can then
+ * be used to change the colour of this region.
+ */
 void lcd_selectRegion(lcd_region region);
+
+/**
+ * Sets the colour of the last selected region. Provides a slight performance
+ * buff over setRegion as the region does not have to be reselected in order to
+ * change the colour. Has limited use case since it can only be applied to the
+ * last selected region
+ */
 void lcd_setColour(lcd_colour16 colour);
+
+/**
+ * Set an individual pixel to a specific colour.
+ */
 void lcd_setPixel(lcd_point p, lcd_colour16 colour);
-void lcd_setPixels(lcd_point *p, lcd_colour16 *colour, uint16_t np);
-void lcd_setPixels8bit(lcd_point *p, lcd_colour8 *colour, uint16_t np);
+
+/**
+ * Maps an array of pixels to the colours in an array of colours. For each point
+ * `p` with index `i` the pixel will be coloured with the colour with the
+ * corresponding colour of index `i` from the `colours` array. Both `p` and
+ * `colours` should have at least `np` elements.
+ */
+void lcd_setPixels(lcd_point *p, lcd_colour16 *colours, uint16_t np);
+/**
+ * Maps an array of pixels to the colours in an array of colours. For each point
+ * `p` with index `i` the pixel will be coloured with the colour with the
+ * corresponding colour of index `i` from the `colours` array. Both `p` and
+ * `colours` should have at least `np` elements.
+ *
+ * For large arrays of points, using 8-bit colour will reduce the memory
+ * overhead
+ */
+void lcd_setPixels8bit(lcd_point *p, lcd_colour8 *colours, uint16_t np);
+/**
+ * Colours all of the pixels in the array `p` in the colour `colour`. The length
+ * of the array `p` should be at least `np` elements long.
+ */
 void lcd_setPixelsMono(lcd_point *p, lcd_colour16 colour, uint16_t np);
+
 void lcd_setRegion(lcd_region region, lcd_colour16 colour);
 void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t nr);
 void lcd_setRegions8bit(lcd_region *region, lcd_colour8 *colour, uint16_t nr);
