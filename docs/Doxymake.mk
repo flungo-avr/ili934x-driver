@@ -67,6 +67,10 @@ doxygen: docs/Doxyfile html latex docs/DoxygenLayout.xml
 	$(info Generating Documentation using Doxygen)
 	@doxygen $<
 
+.PHONY: GIT_LAST_COMMIT
+
+GIT_LAST_COMMIT: GIT_LAST_COMMIT = $(shell git rev-parse HEAD)
+
 .PHONY: docs-commit-prep docs-commit html-commit latex-commit
 
 docs-commit-prep:
@@ -78,14 +82,12 @@ docs-commit-prep:
 
 docs-commit: html-commit latex-commit
 
-html-commit: GIT_LAST_COMMIT = $(shell git rev-parse HEAD)
-html-commit: | docs-commit-prep html/.git docs
+html-commit: | docs-commit-prep html/.git docs GIT_LAST_COMMIT
 	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
 	@cd html && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
 	git add html && git commit -m "HTML documentation updated for $(GIT_LAST_COMMIT)"
 
-latex-commit: GIT_LAST_COMMIT = $(shell git rev-parse HEAD)
-latex-commit: | docs-commit-prep latex/.git docs
+latex-commit: | docs-commit-prep latex/.git docs GIT_LAST_COMMIT
 	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
 	@cd latex && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
 	git add latex && git commit -m "LaTeX documentation updated for $(GIT_LAST_COMMIT)"
