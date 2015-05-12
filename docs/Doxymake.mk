@@ -28,6 +28,7 @@ LATEX_CLEAN_EXCLUDE           = '.git*'
 LATEX_CLEAN_EXCLUDE_FIND_ARGS = $(addprefix ! -name , $(LATEX_CLEAN_EXCLUDE))
 GIT_REMOTE_ORIGIN_URL         = $(shell git config --get remote.origin.url)
 GIT_CURRENT_BRANCH            = $(shell git rev-parse --abbrev-ref HEAD)
+GIT_LAST_COMMIT              := $(shell git rev-parse HEAD)
 GIT_HMTL_BRANCH               = gh-pages
 GIT_LATEX_BRANCH              = latex
 
@@ -67,10 +68,6 @@ doxygen: docs/Doxyfile html latex docs/DoxygenLayout.xml
 	$(info Generating Documentation using Doxygen)
 	@doxygen $<
 
-.PHONY: GIT_LAST_COMMIT
-
-GIT_LAST_COMMIT: export GIT_LAST_COMMIT := $(shell git rev-parse HEAD)
-
 .PHONY: docs-commit-prep docs-commit html-commit latex-commit
 
 docs-commit-prep:
@@ -82,12 +79,12 @@ docs-commit-prep:
 
 docs-commit: html-commit latex-commit
 
-html-commit: | docs-commit-prep html/.git docs GIT_LAST_COMMIT
+html-commit: | docs-commit-prep html/.git docs
 	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
-	@echo 'cd html && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"'
-	echo 'git add html && git commit -m "HTML documentation updated for $(GIT_LAST_COMMIT)"'
+	@cd html && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
+	@git add html && git commit -m "HTML documentation updated for $(GIT_LAST_COMMIT)"
 
-latex-commit: | docs-commit-prep latex/.git docs GIT_LAST_COMMIT
+latex-commit: | docs-commit-prep latex/.git docs
 	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
-	@echo 'cd latex && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"'
-	echo 'git add latex && git commit -m "LaTeX documentation updated for $(GIT_LAST_COMMIT)"'
+	@cd latex && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
+	git add latex && git commit -m "LaTeX documentation updated for $(GIT_LAST_COMMIT)"
