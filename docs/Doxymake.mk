@@ -84,10 +84,10 @@ docs-commit: html-commit latex-commit
 
 html-commit: | docs-commit-prep html/.git docs GIT_LAST_COMMIT
 	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
-	@cd html && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
-	git add html && git commit -m "HTML documentation updated for $(GIT_LAST_COMMIT)"
+	@echo 'cd html && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"'
+	echo 'git add html && git commit -m "HTML documentation updated for $(GIT_LAST_COMMIT)"'
 
 latex-commit: | docs-commit-prep latex/.git docs GIT_LAST_COMMIT
 	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
-	@cd latex && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
-	git add latex && git commit -m "LaTeX documentation updated for $(GIT_LAST_COMMIT)"
+	@echo 'cd latex && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"'
+	echo 'git add latex && git commit -m "LaTeX documentation updated for $(GIT_LAST_COMMIT)"'
