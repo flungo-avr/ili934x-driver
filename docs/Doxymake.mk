@@ -52,16 +52,11 @@ clean-latex: | latex
 	@find latex $(CLEAN_FIND_OPTS) $(HTML_CLEAN_EXCLUDE_FIND_ARGS) $(CLEAN_FIND_ACTION)
 
 
-ifeq ($(GIT_REMOTE_ORIGIN_URL),)
-html/.git:
-	$(info Initialising git for HTML documentation)
-	rm -rf html/
-	git clone $(GIT_REMOTE_ORIGIN_URL) html
-
-latex/.git:
-	$(info Initialising git for LaTeX documentation)
-	rm -rf latex/
-	git clone $(GIT_REMOTE_ORIGIN_URL) latex
+ifeq ($(GIT_CURRENT_BRANCH),master)
+%/.git: | %
+	$(info Initialising git submodule for $(@D))
+	git submodule init $(@D)
+	git submodule update $(@D)
 endif
 
 .PHONY: docs doxygen
@@ -81,9 +76,16 @@ docs-commit-prep:
 	@git diff-index --cached --quiet HEAD --  || (echo "FAILURE: Uncommited changes"; exit 3;)
 	@! git ls-files --others --exclude-standard --error-unmatch -- ':/*' >/dev/null 2>/dev/null || (echo "FAILURE: Untracked changes"; exit 4;)
 
-docs-commit: html-commit
+docs-commit: html-commit latex-commit
 
 html-commit: GIT_LAST_COMMIT = $(shell git rev-parse HEAD)
 html-commit: | docs-commit-prep html/.git docs
 	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
 	@cd html && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
+	git add html && git commit -m "HTML documentation updated for $(GIT_LAST_COMMIT)"
+
+latex-commit: GIT_LAST_COMMIT = $(shell git rev-parse HEAD)
+latex-commit: | docs-commit-prep latex/.git docs
+	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
+	@cd latex && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
+	git add latex && git commit -m "LaTeX documentation updated for $(GIT_LAST_COMMIT)"
