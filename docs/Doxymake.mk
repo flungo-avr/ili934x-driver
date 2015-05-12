@@ -69,7 +69,7 @@ doxygen: docs/Doxyfile html latex docs/DoxygenLayout.xml
 
 .PHONY: GIT_LAST_COMMIT
 
-GIT_LAST_COMMIT: GIT_LAST_COMMIT = $(shell git rev-parse HEAD)
+GIT_LAST_COMMIT: export GIT_LAST_COMMIT := $(shell git rev-parse HEAD)
 
 .PHONY: docs-commit-prep docs-commit html-commit latex-commit
 
