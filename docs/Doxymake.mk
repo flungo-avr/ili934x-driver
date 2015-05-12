@@ -85,6 +85,17 @@ html-commit: | docs-commit-prep html/.git docs
 	@git add html && git commit -m "HTML documentation updated for $(GIT_LAST_COMMIT)"
 
 latex-commit: | docs-commit-prep latex/.git docs
-	$(info Commiting HTML documentation to $(GIT_HMTL_BRANCH))
+	$(info Commiting HTML documentation to $(GIT_LATEX_BRANCH))
 	@cd latex && git add . && git commit -m "Docs generated for $(GIT_LAST_COMMIT)"
 	git add latex && git commit -m "LaTeX documentation updated for $(GIT_LAST_COMMIT)"
+
+.PHONY: docs-push docs-reset
+
+docs-reset:
+	cd html && git reset --hard
+	cd latex && git reset --hard
+
+docs-push: docs-commit
+	cd html && git push origin $(GIT_HMTL_BRANCH)
+	cd latex && git push origin $(GIT_LATEX_BRANCH)
+	git push origin master
