@@ -1,0 +1,67 @@
+Native C implementation for the I\+L\+I934\+X series of L\+C\+D drivers. This driver is designed to implement all functionality of the I\+L\+I934\+X display driver for use with A\+V\+R based projects. The driver is still a W\+I\+P and not all features are completed. The driver provides a set of simple functions for draweing various types of objects to the screen that can be used in conjunction with my A\+V\+R Graphics 2\+D Library to build more complex shapes.
+
+I have tried to implement the library in a lightweight fashion and the footprint of the library alone is extremely small.
+
+More documentation will be added as the library develops.
+
+\subsection*{Usage }
+
+\subsubsection*{Compatability/\+Constraints}
+
+This library is designed for use with A\+V\+R that support extended memory interface with 10 bit addressing connected to the I\+L\+I934\+X driver via an 8 bit parrallel data bus. This is not planned to be customisable in the forseable future but may be part of the long term roadmap to implement S\+P\+I and 16/18bit bus support.
+
+\subsubsection*{Configuration}
+
+To configure, you will need to have a file names {\ttfamily ili934x\+\_\+conf.\+h} in your build path. A sample of this is provided as {\ttfamily \hyperlink{ili934x__conf_8sample_8h_source}{ili934x\+\_\+conf.\+sample.\+h}}. Configuration is made by defining macros for settings that will enable or disable features.
+
+The configuration options currently include\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries I\+L\+I934\+X\+\_\+\+B\+L\+C\+\_\+\+P\+I\+N} -\/ The backlight pin used for the L\+C\+D Driver, currently assumed to be on {\ttfamily P\+O\+R\+T\+B}
+\item {\bfseries I\+L\+I934\+X\+\_\+\+R\+E\+S\+E\+T\+\_\+\+P\+I\+N} -\/ The reset pin used for the L\+C\+D Driver, currently assumed to be on {\ttfamily P\+O\+R\+T\+C}
+\item {\bfseries I\+L\+I934\+X\+\_\+\+C\+M\+D\+\_\+\+A\+D\+D\+R} -\/ The address to write 8 bit commands to that will be sent to the L\+C\+D Driver via the extended memory interface
+\item {\bfseries I\+L\+I934\+X\+\_\+\+D\+A\+T\+A\+\_\+\+A\+D\+D\+R} -\/ The address to write data (command parameters) to that will be sent to the L\+C\+D Driver via the extended memory interface
+\end{DoxyItemize}
+
+\subsection*{Libraries }
+
+This driver is designed to be expanded with the use of additional libraries to provide the functionality you need. Libraries which I have created for use with this driver include\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries A\+V\+R L\+C\+D Text Library} -\/ A library to provide text output to the display in a variety of fonts and styles
+\item {\bfseries A\+V\+R L\+C\+D Graphics 2\+D Library} -\/ A library to aid with the drawing of 2\+D graphics in an efficient manner
+\item {\bfseries A\+V\+R L\+C\+D Graphing Library} -\/ A library to plot various types of graphs
+\end{DoxyItemize}
+
+All the libraries are designed to be used as widgets to provide compatability between each other.
+
+\subsubsection*{Planned Libraries}
+
+
+\begin{DoxyItemize}
+\item {\bfseries I\+L\+I934\+X S\+S\+L (Software Scrolling Library)} -\/ A library to aid with software scrolling of regions of the screen
+\item {\bfseries I\+L\+I934\+X A\+B\+C (Automatic Backlight Control)} -\/ Library to provide automatic backlight adjustment using an L\+D\+R light sensor
+\item {\bfseries I\+L\+I934\+X A\+R\+C (Accelerometer Rotation Control)} -\/ Library to provide automatic rotation of display using an accelerometer
+\item {\bfseries A\+V\+R L\+C\+D U\+I Library} -\/ A library to provide U\+I componants to build graphical user interfaces
+\item {\bfseries A\+V\+R L\+C\+D Animation Library} -\/ A library to aid with having multiple animated components on the display
+\item {\bfseries A\+V\+R L\+C\+D Asset Library} -\/ A library of 2\+D static and animated graphics and glyphs for use in applications
+\item {\bfseries A\+V\+R L\+C\+D Graphics 3\+D Library} -\/ A library to aid with the drawing of 3\+D graphics in an efficient manner
+\item {\bfseries A\+V\+R L\+C\+D Graphics Image Library} -\/ A library to aid with the drawing of bitmap, gif, png and jpeg graphics in an efficient manner
+\end{DoxyItemize}
+
+\subsection*{Example projects }
+
+Example projects that use this library will be added soon.
+
+\subsection*{Planned features }
+
+Features currently in development include\+:
+
+
+\begin{DoxyItemize}
+\item Constants for every constant defined in the datasheet
+\item G\+R\+A\+M read functionality
+\item Hardware scrolling 
+\end{DoxyItemize}

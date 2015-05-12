@@ -1,0 +1,225 @@
+\hypertarget{lcd_8h}{}\section{lcd.\+h File Reference}
+\label{lcd_8h}\index{lcd.\+h@{lcd.\+h}}
+
+
+Methods for an L\+C\+D that uses the I\+L\+I934\+X display driver.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}ili934x.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ili934x\+\_\+cmd.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lcd\+\_\+colour\+\_\+basic.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlcd__point}{lcd\+\_\+point}
+\item 
+struct \hyperlink{structlcd__region}{lcd\+\_\+region}
+\item 
+struct \hyperlink{structlcd__display}{lcd\+\_\+display}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{lcd_8h_a19693eac3018d3e7800fde141921b812}{}\#define \hyperlink{lcd_8h_a19693eac3018d3e7800fde141921b812}{L\+C\+D\+\_\+\+W\+I\+D\+T\+H}~240\label{lcd_8h_a19693eac3018d3e7800fde141921b812}
+
+\begin{DoxyCompactList}\small\item\em Width of the L\+C\+D Display in pixels at the default orientation. \end{DoxyCompactList}\item 
+\hypertarget{lcd_8h_a53a8b2a971de4b88047192655a48b651}{}\#define \hyperlink{lcd_8h_a53a8b2a971de4b88047192655a48b651}{L\+C\+D\+\_\+\+H\+E\+I\+G\+H\+T}~320\label{lcd_8h_a53a8b2a971de4b88047192655a48b651}
+
+\begin{DoxyCompactList}\small\item\em Height of the L\+C\+D Display in pixels at the default orientation. \end{DoxyCompactList}\item 
+\hypertarget{lcd_8h_a8be82de4db85f7bee8b0f8087de6e63e}{}\#define {\bfseries lcd\+\_\+orient\+Sum}(orient\+A,  orient\+B)~((orient\+A + orient\+B) \% 360)\label{lcd_8h_a8be82de4db85f7bee8b0f8087de6e63e}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{lcd_8h_a7cb3c421e75fa86d606a320c88e0c7a2}{}enum {\bfseries lcd\+\_\+orientation} \{ {\bfseries North} = 0, 
+{\bfseries West} = 90, 
+{\bfseries South} = 180, 
+{\bfseries East} = 270
+ \}\label{lcd_8h_a7cb3c421e75fa86d606a320c88e0c7a2}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lcd_8h_ac23e73124dc9fabae95671fe71d074a6}{lcd\+\_\+init} ()
+\begin{DoxyCompactList}\small\item\em Initialise the L\+C\+D and setup the \hyperlink{structlcd__display}{lcd\+\_\+display} structure. \end{DoxyCompactList}\item 
+\hypertarget{lcd_8h_ab643ebf351f45a4ebd8e9c38902919a7}{}void \hyperlink{lcd_8h_ab643ebf351f45a4ebd8e9c38902919a7}{lcd\+\_\+display\+On} ()\label{lcd_8h_ab643ebf351f45a4ebd8e9c38902919a7}
+
+\begin{DoxyCompactList}\small\item\em Turns on the display and enables the backlight. \end{DoxyCompactList}\item 
+\hypertarget{lcd_8h_aeae6dbc80352f0e8005e3438d5e3acb9}{}void \hyperlink{lcd_8h_aeae6dbc80352f0e8005e3438d5e3acb9}{lcd\+\_\+display\+Off} ()\label{lcd_8h_aeae6dbc80352f0e8005e3438d5e3acb9}
+
+\begin{DoxyCompactList}\small\item\em Turns off the display and disables the backlight. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_aada81a5e6d3bbaf247eec56fccc11535}{lcd\+\_\+set\+Orientation} (lcd\+\_\+orientation orient)
+\begin{DoxyCompactList}\small\item\em Set the current orientation of the display. \end{DoxyCompactList}\item 
+\hypertarget{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}{}void \hyperlink{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}{lcd\+\_\+set\+Brightness} (uint8\+\_\+t br)\label{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}
+
+\begin{DoxyCompactList}\small\item\em Set the brightness level of the display. \end{DoxyCompactList}\item 
+\hypertarget{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}{}void \hyperlink{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}{lcd\+\_\+set\+Frame\+Rate\+Hz} (ili934x\+\_\+mode mode, uint8\+\_\+t fr)\label{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}
+
+\begin{DoxyCompactList}\small\item\em Set the framerate of the display in Hz. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_a21e38ea4d9e72e62fa4022406c4d1131}{lcd\+\_\+select\+Region} (\hyperlink{structlcd__region}{lcd\+\_\+region} region)
+\begin{DoxyCompactList}\small\item\em Sets the selected region of the display. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}{lcd\+\_\+set\+Colour} (lcd\+\_\+colour16 colour)
+\begin{DoxyCompactList}\small\item\em Sets the colour of the last selected region. \end{DoxyCompactList}\item 
+\hypertarget{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}{}void \hyperlink{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}{lcd\+\_\+set\+Pixel} (\hyperlink{structlcd__point}{lcd\+\_\+point} p, lcd\+\_\+colour16 colour)\label{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}
+
+\begin{DoxyCompactList}\small\item\em Set an individual pixel to a specific colour. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_a44931b12765261d2c7fce5e6be6c986a}{lcd\+\_\+set\+Pixels} (\hyperlink{structlcd__point}{lcd\+\_\+point} $\ast$p, lcd\+\_\+colour16 $\ast$colours, uint16\+\_\+t np)
+\begin{DoxyCompactList}\small\item\em Maps an array of pixels to the colours in an array of colours. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_a1cd47984e52e4e7bd1e0913b08aa317f}{lcd\+\_\+set\+Pixels8bit} (\hyperlink{structlcd__point}{lcd\+\_\+point} $\ast$p, lcd\+\_\+colour8 $\ast$colours, uint16\+\_\+t np)
+\begin{DoxyCompactList}\small\item\em Maps an array of pixels to the colours in an array of colours. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_abe1303a20303eef126129703ce67962f}{lcd\+\_\+set\+Pixels\+Mono} (\hyperlink{structlcd__point}{lcd\+\_\+point} $\ast$p, lcd\+\_\+colour16 colour, uint16\+\_\+t np)
+\begin{DoxyCompactList}\small\item\em Colours all of the pixels in the array {\ttfamily p} in the colour {\ttfamily colour}. \end{DoxyCompactList}\item 
+\hypertarget{lcd_8h_a8ee1fb31c2842e2a0d833520d9f9b2b8}{}void {\bfseries lcd\+\_\+set\+Region} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour16 colour)\label{lcd_8h_a8ee1fb31c2842e2a0d833520d9f9b2b8}
+
+\item 
+\hypertarget{lcd_8h_a4b5d5023abec187aa1dcf756f26dab49}{}void {\bfseries lcd\+\_\+set\+Regions} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour16 $\ast$colour, uint16\+\_\+t nr)\label{lcd_8h_a4b5d5023abec187aa1dcf756f26dab49}
+
+\item 
+\hypertarget{lcd_8h_a8fcc344cf0821d09d0a33bc75d1da274}{}void {\bfseries lcd\+\_\+set\+Regions8bit} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour8 $\ast$colour, uint16\+\_\+t nr)\label{lcd_8h_a8fcc344cf0821d09d0a33bc75d1da274}
+
+\item 
+\hypertarget{lcd_8h_aa3535e0602ba3602e1ad66b6d703eabe}{}void {\bfseries lcd\+\_\+set\+Regions\+Mono} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour16 colour, uint16\+\_\+t nr)\label{lcd_8h_aa3535e0602ba3602e1ad66b6d703eabe}
+
+\item 
+\hypertarget{lcd_8h_ad6e60935b4cf876b4276e2db7b3a97a7}{}void {\bfseries lcd\+\_\+set\+Bitmap} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour16 $\ast$colour)\label{lcd_8h_ad6e60935b4cf876b4276e2db7b3a97a7}
+
+\item 
+\hypertarget{lcd_8h_ad9e259f0e40f526494ddb3fdcf150d9e}{}void {\bfseries lcd\+\_\+set\+Bitmap8bit} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour8 $\ast$colour)\label{lcd_8h_ad9e259f0e40f526494ddb3fdcf150d9e}
+
+\item 
+\hypertarget{lcd_8h_aab062b5a1751625ce8fecea2ebc3ff31}{}void {\bfseries lcd\+\_\+set\+Bitmap\+Mono} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, uint8\+\_\+t $\ast$data, uint8\+\_\+t bpc)\label{lcd_8h_aab062b5a1751625ce8fecea2ebc3ff31}
+
+\item 
+\hypertarget{lcd_8h_a046c0f4d1dbf116dcd9f8ddc3b0642f2}{}void {\bfseries lcd\+\_\+set\+Region\+Function} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour16($\ast$f)(uint16\+\_\+t x, uint16\+\_\+t), bool relative)\label{lcd_8h_a046c0f4d1dbf116dcd9f8ddc3b0642f2}
+
+\item 
+\hypertarget{lcd_8h_a35c08b1fa742e650f4873939707b893b}{}void {\bfseries lcd\+\_\+clear} ()\label{lcd_8h_a35c08b1fa742e650f4873939707b893b}
+
+\item 
+\hypertarget{lcd_8h_aa485d97a4eb4268f7249d36ccab45c3c}{}void {\bfseries lcd\+\_\+clear\+Pixel} (\hyperlink{structlcd__point}{lcd\+\_\+point} p)\label{lcd_8h_aa485d97a4eb4268f7249d36ccab45c3c}
+
+\item 
+\hypertarget{lcd_8h_aad1cb478dc74e5d9c874f0ccc6e46b9f}{}void {\bfseries lcd\+\_\+clear\+Pixels} (\hyperlink{structlcd__point}{lcd\+\_\+point} $\ast$p, uint16\+\_\+t np)\label{lcd_8h_aad1cb478dc74e5d9c874f0ccc6e46b9f}
+
+\item 
+\hypertarget{lcd_8h_a02e6feac8ec2a9177acdea543716acd7}{}void {\bfseries lcd\+\_\+clear\+Region} (\hyperlink{structlcd__region}{lcd\+\_\+region} region)\label{lcd_8h_a02e6feac8ec2a9177acdea543716acd7}
+
+\item 
+\hypertarget{lcd_8h_ac75260585b1bc6efd99ccb6376fdcdfb}{}void {\bfseries lcd\+\_\+clear\+Regions} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, uint16\+\_\+t nr)\label{lcd_8h_ac75260585b1bc6efd99ccb6376fdcdfb}
+
+\item 
+\hypertarget{lcd_8h_a722dfb2442189a1e49ef5ac85767d607}{}void {\bfseries lcd\+\_\+clear\+Region\+Function} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, bool($\ast$f)(uint16\+\_\+t x, uint16\+\_\+t), bool relative)\label{lcd_8h_a722dfb2442189a1e49ef5ac85767d607}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{lcd_8h_aa350583359431ec10f21216128ea9826}{}\hyperlink{structlcd__display}{lcd\+\_\+display} \hyperlink{lcd_8h_aa350583359431ec10f21216128ea9826}{lcd}\label{lcd_8h_aa350583359431ec10f21216128ea9826}
+
+\begin{DoxyCompactList}\small\item\em Globally accessible \hyperlink{structlcd__display}{lcd\+\_\+display} structure for the L\+C\+D display connected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Methods for an L\+C\+D that uses the I\+L\+I934\+X display driver. 
+
+\begin{DoxyAuthor}{Author}
+Fabrizio Lungo \href{mailto:fab@lungo.co.uk}{\tt fab@lungo.\+co.\+uk} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{lcd_8h_ac23e73124dc9fabae95671fe71d074a6}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+init@{lcd\+\_\+init}}
+\index{lcd\+\_\+init@{lcd\+\_\+init}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_ac23e73124dc9fabae95671fe71d074a6}
+
+
+Initialise the L\+C\+D and setup the \hyperlink{structlcd__display}{lcd\+\_\+display} structure. 
+
+Uses the configuration to set up the display in a default state. When method returns, display is not on and will need to be activated with \hyperlink{lcd_8h_ab643ebf351f45a4ebd8e9c38902919a7}{lcd\+\_\+display\+On()}. This allows you to perform any further configuration tasks at runtime before the display is enabled or to prepare the display at an earlier stage to activate later.
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{structlcd__display}{lcd\+\_\+display} 
+\end{DoxySeeAlso}
+\hypertarget{lcd_8h_a21e38ea4d9e72e62fa4022406c4d1131}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+select\+Region@{lcd\+\_\+select\+Region}}
+\index{lcd\+\_\+select\+Region@{lcd\+\_\+select\+Region}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+select\+Region}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+select\+Region (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+region}}]{region}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a21e38ea4d9e72e62fa4022406c4d1131}
+
+
+Sets the selected region of the display. 
+
+\hyperlink{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}{lcd\+\_\+set\+Colour(lcd\+\_\+colour16)} can then be used to change the colour of this region. \hypertarget{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Colour@{lcd\+\_\+set\+Colour}}
+\index{lcd\+\_\+set\+Colour@{lcd\+\_\+set\+Colour}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Colour}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Colour (
+\begin{DoxyParamCaption}
+\item[{lcd\+\_\+colour16}]{colour}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}
+
+
+Sets the colour of the last selected region. 
+
+Provides a slight performance buff over set\+Region as the region does not have to be reselected in order to change the colour. Has limited use case since it can only be applied to the last selected region \hypertarget{lcd_8h_aada81a5e6d3bbaf247eec56fccc11535}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Orientation@{lcd\+\_\+set\+Orientation}}
+\index{lcd\+\_\+set\+Orientation@{lcd\+\_\+set\+Orientation}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Orientation}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Orientation (
+\begin{DoxyParamCaption}
+\item[{lcd\+\_\+orientation}]{orient}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_aada81a5e6d3bbaf247eec56fccc11535}
+
+
+Set the current orientation of the display. 
+
+When the orientation is changed, the screen is cleared. \hypertarget{lcd_8h_a44931b12765261d2c7fce5e6be6c986a}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels@{lcd\+\_\+set\+Pixels}}
+\index{lcd\+\_\+set\+Pixels@{lcd\+\_\+set\+Pixels}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Pixels}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Pixels (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+point} $\ast$}]{p, }
+\item[{lcd\+\_\+colour16 $\ast$}]{colours, }
+\item[{uint16\+\_\+t}]{np}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a44931b12765261d2c7fce5e6be6c986a}
+
+
+Maps an array of pixels to the colours in an array of colours. 
+
+For each point {\ttfamily p} with index {\ttfamily i} the pixel will be coloured with the colour with the corresponding colour of index {\ttfamily i} from the {\ttfamily colours} array. Both {\ttfamily p} and {\ttfamily colours} should have at least {\ttfamily np} elements. \hypertarget{lcd_8h_a1cd47984e52e4e7bd1e0913b08aa317f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels8bit@{lcd\+\_\+set\+Pixels8bit}}
+\index{lcd\+\_\+set\+Pixels8bit@{lcd\+\_\+set\+Pixels8bit}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Pixels8bit}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Pixels8bit (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+point} $\ast$}]{p, }
+\item[{lcd\+\_\+colour8 $\ast$}]{colours, }
+\item[{uint16\+\_\+t}]{np}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a1cd47984e52e4e7bd1e0913b08aa317f}
+
+
+Maps an array of pixels to the colours in an array of colours. 
+
+For each point {\ttfamily p} with index {\ttfamily i} the pixel will be coloured with the colour with the corresponding colour of index {\ttfamily i} from the {\ttfamily colours} array. Both {\ttfamily p} and {\ttfamily colours} should have at least {\ttfamily np} elements.
+
+For large arrays of points, using 8-\/bit colour will reduce the memory overhead \hypertarget{lcd_8h_abe1303a20303eef126129703ce67962f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels\+Mono@{lcd\+\_\+set\+Pixels\+Mono}}
+\index{lcd\+\_\+set\+Pixels\+Mono@{lcd\+\_\+set\+Pixels\+Mono}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Pixels\+Mono}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Pixels\+Mono (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+point} $\ast$}]{p, }
+\item[{lcd\+\_\+colour16}]{colour, }
+\item[{uint16\+\_\+t}]{np}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_abe1303a20303eef126129703ce67962f}
+
+
+Colours all of the pixels in the array {\ttfamily p} in the colour {\ttfamily colour}. 
+
+The length of the array {\ttfamily p} should be at least {\ttfamily np} elements long. 
