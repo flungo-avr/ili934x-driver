@@ -41,6 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="https://github.com/flungo-avr/ili934x-driver"><span>Source&#160;on&#160;Github</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -84,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">lcd.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* The MIT License (MIT)</span></div>
+<a href="lcd_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/* The MIT License (MIT)</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> * Copyright (c) 2015, Steve Gunn</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Copyright (c) 2015, Fabrizio Lungo &lt;fab@lungo.co.uk&gt;</span></div>
@@ -109,80 +111,103 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;ili934x.h&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;ili934x_cmd.h&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;lcd_colour_basic.h&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#ifndef ILI934X_LIB_LCDH</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define ILI934X_LIB_LCDH 1</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#define LCD_WIDTH  240</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#define LCD_HEIGHT 320</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  North = 0,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  West = 90,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  South = 180,</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  East = 270</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} lcd_orientation;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#define lcd_orientSum(orientA, orientB) ((orientA + orientB) % 360)</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;ili934x.h&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;ili934x_cmd.h&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;lcd_colour_basic.h&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#ifndef ILI934X_LIB_LCDH</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#define ILI934X_LIB_LCDH 1</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="lcd_8h.html#a19693eac3018d3e7800fde141921b812">   45</a></span>&#160;<span class="preprocessor">#define LCD_WIDTH  240</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structlcd__point.html">   47</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  uint16_t x, y;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <a class="code" href="structlcd__point.html">lcd_point</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="lcd_8h.html#a53a8b2a971de4b88047192655a48b651">   49</a></span>&#160;<span class="preprocessor">#define LCD_HEIGHT 320</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structlcd__region.html">   51</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  uint16_t left, right;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  uint16_t top, bottom;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <a class="code" href="structlcd__region.html">lcd_region</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structlcd__display.html">   56</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  uint16_t width, height;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  lcd_orientation orient;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="structlcd__region.html">lcd_region</a> selection;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  lcd_colour16 foreground, background;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <a class="code" href="structlcd__display.html">lcd_display</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">extern</span> <a class="code" href="structlcd__display.html">lcd_display</a> lcd;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> lcd_init();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> lcd_displayOn();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> lcd_displayOff();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> lcd_setOrientation(lcd_orientation orient);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">void</span> lcd_setBrightness(uint8_t br);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> lcd_setFrameRateHz(ili934x_mode mode, uint8_t fr);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> lcd_selectRegion(<a class="code" href="structlcd__region.html">lcd_region</a> region);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> lcd_setColour(lcd_colour16 colour);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> lcd_setPixel(<a class="code" href="structlcd__point.html">lcd_point</a> p, lcd_colour16 colour);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">void</span> lcd_setPixels(<a class="code" href="structlcd__point.html">lcd_point</a> *p, lcd_colour16 *colour, uint16_t np);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> lcd_setPixels8bit(<a class="code" href="structlcd__point.html">lcd_point</a> *p, lcd_colour8 *colour, uint16_t np);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> lcd_setPixelsMono(<a class="code" href="structlcd__point.html">lcd_point</a> *p, lcd_colour16 colour, uint16_t np);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> lcd_setRegion(<a class="code" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 colour);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> lcd_setRegions(<a class="code" href="structlcd__region.html">lcd_region</a> *region, lcd_colour16 *colour, uint16_t nr);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> lcd_setRegions8bit(<a class="code" href="structlcd__region.html">lcd_region</a> *region, lcd_colour8 *colour, uint16_t nr);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> lcd_setRegionsMono(<a class="code" href="structlcd__region.html">lcd_region</a> *region, lcd_colour16 colour, uint16_t nr);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">void</span> lcd_setBitmap(<a class="code" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 *colour);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">void</span> lcd_setBitmap8bit(<a class="code" href="structlcd__region.html">lcd_region</a> region, lcd_colour8 *colour);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">void</span> lcd_setBitmapMono(<a class="code" href="structlcd__region.html">lcd_region</a> region, uint8_t *data, uint8_t bpc);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordtype">void</span> lcd_setRegionFunction(<a class="code" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 (*f)(uint16_t x, uint16_t), <span class="keywordtype">bool</span> relative);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span> lcd_clear();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">void</span> lcd_clearPixel(<a class="code" href="structlcd__point.html">lcd_point</a> p);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> lcd_clearPixels(<a class="code" href="structlcd__point.html">lcd_point</a> *p, uint16_t np);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">void</span> lcd_clearRegion(<a class="code" href="structlcd__region.html">lcd_region</a> region);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">void</span> lcd_clearRegions(<a class="code" href="structlcd__region.html">lcd_region</a> *region, uint16_t nr);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">void</span> lcd_clearRegionFunction(<a class="code" href="structlcd__region.html">lcd_region</a> region, <span class="keywordtype">bool</span> (*f)(uint16_t x, uint16_t), <span class="keywordtype">bool</span> relative);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="structlcd__point_html"><div class="ttname"><a href="structlcd__point.html">lcd_point</a></div><div class="ttdef"><b>Definition:</b> lcd.h:47</div></div>
-<div class="ttc" id="structlcd__region_html"><div class="ttname"><a href="structlcd__region.html">lcd_region</a></div><div class="ttdef"><b>Definition:</b> lcd.h:51</div></div>
-<div class="ttc" id="structlcd__display_html"><div class="ttname"><a href="structlcd__display.html">lcd_display</a></div><div class="ttdef"><b>Definition:</b> lcd.h:56</div></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  North = 0,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  West = 90,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  South = 180,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  East = 270</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} lcd_orientation;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#define lcd_orientSum(orientA, orientB) ((orientA + orientB) % 360)</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structlcd__point.html">   60</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  uint16_t x, y;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <a class="code" href="structlcd__point.html">lcd_point</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structlcd__region.html">   64</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  uint16_t left, right;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  uint16_t top, bottom;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <a class="code" href="structlcd__region.html">lcd_region</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structlcd__display.html">   69</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  uint16_t width, height;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  lcd_orientation orient;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="structlcd__region.html">lcd_region</a> selection;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  lcd_colour16 foreground, background;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <a class="code" href="structlcd__display.html">lcd_display</a>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">extern</span> <a class="code" href="structlcd__display.html">lcd_display</a> <a class="code" href="lcd_8h.html#aa350583359431ec10f21216128ea9826">lcd</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#ac23e73124dc9fabae95671fe71d074a6">lcd_init</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#ab643ebf351f45a4ebd8e9c38902919a7">lcd_displayOn</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#aeae6dbc80352f0e8005e3438d5e3acb9">lcd_displayOff</a>();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#aada81a5e6d3bbaf247eec56fccc11535">lcd_setOrientation</a>(lcd_orientation orient);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#accd40340a1b76ed9d39f50bfc946e8c6">lcd_setBrightness</a>(uint8_t br);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#a8a9afe1225ef81eca265b4389ab5caac">lcd_setFrameRateHz</a>(ili934x_mode mode, uint8_t fr);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#a21e38ea4d9e72e62fa4022406c4d1131">lcd_selectRegion</a>(<a class="code" href="structlcd__region.html">lcd_region</a> region);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#a20be033fd14628f5bd3d63f36f1e0434">lcd_setColour</a>(lcd_colour16 colour);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#a26bee71a7c7ca2d8b9f5b4eb6ab37dff">lcd_setPixel</a>(<a class="code" href="structlcd__point.html">lcd_point</a> p, lcd_colour16 colour);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#a44931b12765261d2c7fce5e6be6c986a">lcd_setPixels</a>(<a class="code" href="structlcd__point.html">lcd_point</a> *p, lcd_colour16 *colours, uint16_t np);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#a1cd47984e52e4e7bd1e0913b08aa317f">lcd_setPixels8bit</a>(<a class="code" href="structlcd__point.html">lcd_point</a> *p, lcd_colour8 *colours, uint16_t np);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keywordtype">void</span> <a class="code" href="lcd_8h.html#abe1303a20303eef126129703ce67962f">lcd_setPixelsMono</a>(<a class="code" href="structlcd__point.html">lcd_point</a> *p, lcd_colour16 colour, uint16_t np);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordtype">void</span> lcd_setRegion(<a class="code" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 colour);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keywordtype">void</span> lcd_setRegions(<a class="code" href="structlcd__region.html">lcd_region</a> *region, lcd_colour16 *colour, uint16_t nr);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keywordtype">void</span> lcd_setRegions8bit(<a class="code" href="structlcd__region.html">lcd_region</a> *region, lcd_colour8 *colour, uint16_t nr);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keywordtype">void</span> lcd_setRegionsMono(<a class="code" href="structlcd__region.html">lcd_region</a> *region, lcd_colour16 colour, uint16_t nr);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keywordtype">void</span> lcd_setBitmap(<a class="code" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 *colour);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keywordtype">void</span> lcd_setBitmap8bit(<a class="code" href="structlcd__region.html">lcd_region</a> region, lcd_colour8 *colour);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keywordtype">void</span> lcd_setBitmapMono(<a class="code" href="structlcd__region.html">lcd_region</a> region, uint8_t *data, uint8_t bpc);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keywordtype">void</span> lcd_setRegionFunction(<a class="code" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 (*f)(uint16_t x, uint16_t), <span class="keywordtype">bool</span> relative);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keywordtype">void</span> lcd_clear();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keywordtype">void</span> lcd_clearPixel(<a class="code" href="structlcd__point.html">lcd_point</a> p);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keywordtype">void</span> lcd_clearPixels(<a class="code" href="structlcd__point.html">lcd_point</a> *p, uint16_t np);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">void</span> lcd_clearRegion(<a class="code" href="structlcd__region.html">lcd_region</a> region);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keywordtype">void</span> lcd_clearRegions(<a class="code" href="structlcd__region.html">lcd_region</a> *region, uint16_t nr);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keywordtype">void</span> lcd_clearRegionFunction(<a class="code" href="structlcd__region.html">lcd_region</a> region, <span class="keywordtype">bool</span> (*f)(uint16_t x, uint16_t), <span class="keywordtype">bool</span> relative);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="lcd_8h_html_a1cd47984e52e4e7bd1e0913b08aa317f"><div class="ttname"><a href="lcd_8h.html#a1cd47984e52e4e7bd1e0913b08aa317f">lcd_setPixels8bit</a></div><div class="ttdeci">void lcd_setPixels8bit(lcd_point *p, lcd_colour8 *colours, uint16_t np)</div><div class="ttdoc">Maps an array of pixels to the colours in an array of colours. </div><div class="ttdef"><b>Definition:</b> lcd.c:184</div></div>
+<div class="ttc" id="structlcd__point_html"><div class="ttname"><a href="structlcd__point.html">lcd_point</a></div><div class="ttdef"><b>Definition:</b> lcd.h:60</div></div>
+<div class="ttc" id="lcd_8h_html_accd40340a1b76ed9d39f50bfc946e8c6"><div class="ttname"><a href="lcd_8h.html#accd40340a1b76ed9d39f50bfc946e8c6">lcd_setBrightness</a></div><div class="ttdeci">void lcd_setBrightness(uint8_t br)</div><div class="ttdoc">Set the brightness level of the display. </div><div class="ttdef"><b>Definition:</b> lcd.c:110</div></div>
+<div class="ttc" id="lcd_8h_html_a44931b12765261d2c7fce5e6be6c986a"><div class="ttname"><a href="lcd_8h.html#a44931b12765261d2c7fce5e6be6c986a">lcd_setPixels</a></div><div class="ttdeci">void lcd_setPixels(lcd_point *p, lcd_colour16 *colours, uint16_t np)</div><div class="ttdoc">Maps an array of pixels to the colours in an array of colours. </div><div class="ttdef"><b>Definition:</b> lcd.c:176</div></div>
+<div class="ttc" id="lcd_8h_html_a26bee71a7c7ca2d8b9f5b4eb6ab37dff"><div class="ttname"><a href="lcd_8h.html#a26bee71a7c7ca2d8b9f5b4eb6ab37dff">lcd_setPixel</a></div><div class="ttdeci">void lcd_setPixel(lcd_point p, lcd_colour16 colour)</div><div class="ttdoc">Set an individual pixel to a specific colour. </div><div class="ttdef"><b>Definition:</b> lcd.c:167</div></div>
+<div class="ttc" id="lcd_8h_html_aeae6dbc80352f0e8005e3438d5e3acb9"><div class="ttname"><a href="lcd_8h.html#aeae6dbc80352f0e8005e3438d5e3acb9">lcd_displayOff</a></div><div class="ttdeci">void lcd_displayOff()</div><div class="ttdoc">Turns off the display and disables the backlight. </div><div class="ttdef"><b>Definition:</b> lcd.c:103</div></div>
+<div class="ttc" id="lcd_8h_html_a20be033fd14628f5bd3d63f36f1e0434"><div class="ttname"><a href="lcd_8h.html#a20be033fd14628f5bd3d63f36f1e0434">lcd_setColour</a></div><div class="ttdeci">void lcd_setColour(lcd_colour16 colour)</div><div class="ttdoc">Sets the colour of the last selected region. </div><div class="ttdef"><b>Definition:</b> lcd.c:157</div></div>
+<div class="ttc" id="structlcd__region_html"><div class="ttname"><a href="structlcd__region.html">lcd_region</a></div><div class="ttdef"><b>Definition:</b> lcd.h:64</div></div>
+<div class="ttc" id="lcd_8h_html_a8a9afe1225ef81eca265b4389ab5caac"><div class="ttname"><a href="lcd_8h.html#a8a9afe1225ef81eca265b4389ab5caac">lcd_setFrameRateHz</a></div><div class="ttdeci">void lcd_setFrameRateHz(ili934x_mode mode, uint8_t fr)</div><div class="ttdoc">Set the framerate of the display in Hz. </div><div class="ttdef"><b>Definition:</b> lcd.c:118</div></div>
+<div class="ttc" id="structlcd__display_html"><div class="ttname"><a href="structlcd__display.html">lcd_display</a></div><div class="ttdef"><b>Definition:</b> lcd.h:69</div></div>
+<div class="ttc" id="lcd_8h_html_aa350583359431ec10f21216128ea9826"><div class="ttname"><a href="lcd_8h.html#aa350583359431ec10f21216128ea9826">lcd</a></div><div class="ttdeci">lcd_display lcd</div><div class="ttdoc">Globally accessible lcd_display structure for the LCD display connected. </div><div class="ttdef"><b>Definition:</b> lcd.c:31</div></div>
+<div class="ttc" id="lcd_8h_html_abe1303a20303eef126129703ce67962f"><div class="ttname"><a href="lcd_8h.html#abe1303a20303eef126129703ce67962f">lcd_setPixelsMono</a></div><div class="ttdeci">void lcd_setPixelsMono(lcd_point *p, lcd_colour16 colour, uint16_t np)</div><div class="ttdoc">Colours all of the pixels in the array p in the colour colour. </div><div class="ttdef"><b>Definition:</b> lcd.c:193</div></div>
+<div class="ttc" id="lcd_8h_html_aada81a5e6d3bbaf247eec56fccc11535"><div class="ttname"><a href="lcd_8h.html#aada81a5e6d3bbaf247eec56fccc11535">lcd_setOrientation</a></div><div class="ttdeci">void lcd_setOrientation(lcd_orientation orient)</div><div class="ttdoc">Set the current orientation of the display. </div></div>
+<div class="ttc" id="lcd_8h_html_a21e38ea4d9e72e62fa4022406c4d1131"><div class="ttname"><a href="lcd_8h.html#a21e38ea4d9e72e62fa4022406c4d1131">lcd_selectRegion</a></div><div class="ttdeci">void lcd_selectRegion(lcd_region region)</div><div class="ttdoc">Sets the selected region of the display. </div><div class="ttdef"><b>Definition:</b> lcd.c:151</div></div>
+<div class="ttc" id="lcd_8h_html_ac23e73124dc9fabae95671fe71d074a6"><div class="ttname"><a href="lcd_8h.html#ac23e73124dc9fabae95671fe71d074a6">lcd_init</a></div><div class="ttdeci">void lcd_init()</div><div class="ttdoc">Initialise the LCD and setup the lcd_display structure. </div><div class="ttdef"><b>Definition:</b> lcd.c:33</div></div>
+<div class="ttc" id="lcd_8h_html_ab643ebf351f45a4ebd8e9c38902919a7"><div class="ttname"><a href="lcd_8h.html#ab643ebf351f45a4ebd8e9c38902919a7">lcd_displayOn</a></div><div class="ttdeci">void lcd_displayOn()</div><div class="ttdoc">Turns on the display and enables the backlight. </div><div class="ttdef"><b>Definition:</b> lcd.c:95</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 10 2015 13:59:28 for ILI934X Driver by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 12 2015 11:01:03 for ILI934X Driver by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

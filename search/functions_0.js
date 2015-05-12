@@ -1,14 +1,8 @@
 var searchData=
 [
-  ['lcd',['lcd',['../lcd_8h.html#aa350583359431ec10f21216128ea9826',1,'lcd.c']]],
-  ['lcd_2eh',['lcd.h',['../lcd_8h.html',1,'']]],
-  ['lcd_5fdisplay',['lcd_display',['../structlcd__display.html',1,'']]],
   ['lcd_5fdisplayoff',['lcd_displayOff',['../lcd_8h.html#aeae6dbc80352f0e8005e3438d5e3acb9',1,'lcd.c']]],
   ['lcd_5fdisplayon',['lcd_displayOn',['../lcd_8h.html#ab643ebf351f45a4ebd8e9c38902919a7',1,'lcd.c']]],
-  ['lcd_5fheight',['LCD_HEIGHT',['../lcd_8h.html#a53a8b2a971de4b88047192655a48b651',1,'lcd.h']]],
   ['lcd_5finit',['lcd_init',['../lcd_8h.html#ac23e73124dc9fabae95671fe71d074a6',1,'lcd.c']]],
-  ['lcd_5fpoint',['lcd_point',['../structlcd__point.html',1,'']]],
-  ['lcd_5fregion',['lcd_region',['../structlcd__region.html',1,'']]],
   ['lcd_5fselectregion',['lcd_selectRegion',['../lcd_8h.html#a21e38ea4d9e72e62fa4022406c4d1131',1,'lcd.c']]],
   ['lcd_5fsetbrightness',['lcd_setBrightness',['../lcd_8h.html#accd40340a1b76ed9d39f50bfc946e8c6',1,'lcd.c']]],
   ['lcd_5fsetcolour',['lcd_setColour',['../lcd_8h.html#a20be033fd14628f5bd3d63f36f1e0434',1,'lcd.c']]],
@@ -17,6 +11,5 @@ var searchData=
   ['lcd_5fsetpixel',['lcd_setPixel',['../lcd_8h.html#a26bee71a7c7ca2d8b9f5b4eb6ab37dff',1,'lcd.c']]],
   ['lcd_5fsetpixels',['lcd_setPixels',['../lcd_8h.html#a44931b12765261d2c7fce5e6be6c986a',1,'lcd.c']]],
   ['lcd_5fsetpixels8bit',['lcd_setPixels8bit',['../lcd_8h.html#a1cd47984e52e4e7bd1e0913b08aa317f',1,'lcd.c']]],
-  ['lcd_5fsetpixelsmono',['lcd_setPixelsMono',['../lcd_8h.html#abe1303a20303eef126129703ce67962f',1,'lcd.c']]],
-  ['lcd_5fwidth',['LCD_WIDTH',['../lcd_8h.html#a19693eac3018d3e7800fde141921b812',1,'lcd.h']]]
+  ['lcd_5fsetpixelsmono',['lcd_setPixelsMono',['../lcd_8h.html#abe1303a20303eef126129703ce67962f',1,'lcd.c']]]
 ];
