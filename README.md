@@ -7,6 +7,11 @@ I have tried to implement the library in a lightweight fashion and the footprint
 
 More documentation will be added as the library develops.
 
+API/Documentation
+-----------------
+
+Documentation is now provided via the automatically generated doxygen site, as well as by the doxygen generated LaTeX manual. The site is available on the [gh-pages site](http://flungo-avr.github.io/ili934x-driver/) for this repository or by downloading the [gh-pages branch](https://github.com/flungo-avr/ili934x-driver/tree/gh-pages). The LaTeX version of this documentation is currently only available by downloading and compiling yourself from the [latex branch](https://github.com/flungo-avr/ili934x-driver/tree/latex). I hope to have this automatically made and published with continuous integration and to publish it with a packaged version of the library at incremental stages.
+
 Usage
 -----
 
