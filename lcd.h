@@ -242,9 +242,58 @@ void lcd_setRegions8bit(lcd_region *region, lcd_colour8 *colour, uint16_t nr);
  */
 void lcd_setRegionsMono(lcd_region *region, lcd_colour16 colour, uint16_t nr);
 
+/**
+ * Displays a bitmap to a given region.
+ *
+ * For each pixel in the region (going from left to right before wrapping
+ * around) the next colour in the array of colours will be used. Every pixel
+ * will be set, so this cannot be used for for any graphic that will not fit
+ * in a square.
+ *
+ * The `colour` array should have at least `(region.right - region.left) *
+ * (region.bottom - region.top)` (i.e. `region.height * region.width` - the area
+ * of the region in pixels) elements.
+ *
+ * @param[in] region the region that will be filled with the bit map
+ * @param[in] colour pointer to the first element in the map of 16 bit colours
+ */
 void lcd_setBitmap(lcd_region region, lcd_colour16 *colour);
+/**
+ * Displays an 8-bit bitmap to a given region.
+ *
+ * For each pixel in the region (going from left to right before wrapping
+ * around) the next colour in the array of colours will be used. Every pixel
+ * will be set, so this cannot be used for for any graphic that will not fit
+ * in a square.
+ *
+ * The `colour` array should have at least `(region.right - region.left) *
+ * (region.bottom - region.top)` (i.e. `region.height * region.width` - the area
+ * of the region in pixels) elements.
+ *
+ * @param[in] region the region that will be filled with the bit map
+ * @param[in] colour pointer to the first element in the map of 8 bit colour
+ */
 void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour);
-void lcd_setBitmapMono(lcd_region region, uint8_t *data, uint8_t bpc);
+/**
+ * Displays a mono bitmap to a given region.
+ *
+ * For each pixel in the region (going from left to right before wrapping
+ * around) one bit of the data will be read (from LSB to MSB) and if that bit is
+ * a `1` forground will be displayed and if it is a `0` background will be used.
+ * Foreground and background are based on that defined in the `lcd_display`.
+ *
+ * `bpr` defines how many bits should be used per row. This allows for better
+ * use of the available bits when the width of the region is not divisible by 8.
+ * When the width of the region is less than the `bpr` value, then background
+ * will be writen into the rest of the given region's width. When `bpr` is
+ * greater than the width of the given region, additional bits of data will be
+ * ignored.
+ *
+ * @param[in] region the region that will be filled with the bit map
+ * @param[in] data   the pointer to the first byte of the bitmap data
+ */
+void lcd_setBitmapMono(lcd_region region, uint8_t *data, uint8_t bpr);
+
 void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint16_t), bool relative);
 void lcd_clear();
 void lcd_clearPixel(lcd_point p);
