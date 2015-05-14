@@ -166,7 +166,11 @@ void lcd_setColour(lcd_colour16 colour) {
 
 void lcd_setPixel(lcd_point p, lcd_colour16 colour) {
   /* Select the point */
-  lcd_region r = {p.x, p.x, p.y, p.y};
+  lcd_region r;
+  r.top    = p.x;
+  r.bottom = p.x;
+  r.left   = p.y;
+  r.right  = p.y;
   lcd_selectRegion(r);
   /* Write the colour */
   ili934x_initMemoryWrite();
@@ -323,7 +327,12 @@ void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint
 }
 
 void lcd_clear() {
-  lcd_region display = {0, lcd.width - 1, 0, lcd.height - 1};
+  lcd_region display;
+  display.top    = 0;
+  display.bottom = lcd.width - 1;
+  display.left   = 0;
+  display.right  = lcd.height - 1;
+
   lcd_setRegion(display, lcd.background);
 }
 
