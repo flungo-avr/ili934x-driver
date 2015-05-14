@@ -75,9 +75,11 @@ void lcd_init() {
   #endif
   /* Init lcd object */
   #if ILI934X_ROW_COL_EXCHANGE
+  /* Exchange the wdith and height */
   lcd.width = LCD_HEIGHT;
   lcd.height = LCD_WIDTH;
   #else
+  /* Width is width, height is height */
   lcd.width = LCD_WIDTH;
   lcd.height = LCD_HEIGHT;
   #endif
@@ -329,9 +331,9 @@ void lcd_setRegionFunction(lcd_region region, lcd_colour16 (*f)(uint16_t x, uint
 void lcd_clear() {
   lcd_region display;
   display.top    = 0;
-  display.bottom = lcd.width - 1;
+  display.bottom = lcd.height - 1;
   display.left   = 0;
-  display.right  = lcd.height - 1;
+  display.right  = lcd.width - 1;
 
   lcd_setRegion(display, lcd.background);
 }
