@@ -10,6 +10,9 @@ var searchData=
   ['lcd_5fpoint',['lcd_point',['../structlcd__point.html',1,'']]],
   ['lcd_5fregion',['lcd_region',['../structlcd__region.html',1,'']]],
   ['lcd_5fselectregion',['lcd_selectRegion',['../lcd_8h.html#a21e38ea4d9e72e62fa4022406c4d1131',1,'lcd.c']]],
+  ['lcd_5fsetbitmap',['lcd_setBitmap',['../lcd_8h.html#ad6e60935b4cf876b4276e2db7b3a97a7',1,'lcd.c']]],
+  ['lcd_5fsetbitmap8bit',['lcd_setBitmap8bit',['../lcd_8h.html#ad9e259f0e40f526494ddb3fdcf150d9e',1,'lcd.c']]],
+  ['lcd_5fsetbitmapmono',['lcd_setBitmapMono',['../lcd_8h.html#ae04d2f81fa38635f374d3b0efc944738',1,'lcd.c']]],
   ['lcd_5fsetbrightness',['lcd_setBrightness',['../lcd_8h.html#accd40340a1b76ed9d39f50bfc946e8c6',1,'lcd.c']]],
   ['lcd_5fsetcolour',['lcd_setColour',['../lcd_8h.html#a20be033fd14628f5bd3d63f36f1e0434',1,'lcd.c']]],
   ['lcd_5fsetframeratehz',['lcd_setFrameRateHz',['../lcd_8h.html#a8a9afe1225ef81eca265b4389ab5caac',1,'lcd.c']]],
@@ -18,5 +21,9 @@ var searchData=
   ['lcd_5fsetpixels',['lcd_setPixels',['../lcd_8h.html#a44931b12765261d2c7fce5e6be6c986a',1,'lcd.c']]],
   ['lcd_5fsetpixels8bit',['lcd_setPixels8bit',['../lcd_8h.html#a1cd47984e52e4e7bd1e0913b08aa317f',1,'lcd.c']]],
   ['lcd_5fsetpixelsmono',['lcd_setPixelsMono',['../lcd_8h.html#abe1303a20303eef126129703ce67962f',1,'lcd.c']]],
+  ['lcd_5fsetregion',['lcd_setRegion',['../lcd_8h.html#a8ee1fb31c2842e2a0d833520d9f9b2b8',1,'lcd.c']]],
+  ['lcd_5fsetregions',['lcd_setRegions',['../lcd_8h.html#a4b5d5023abec187aa1dcf756f26dab49',1,'lcd.c']]],
+  ['lcd_5fsetregions8bit',['lcd_setRegions8bit',['../lcd_8h.html#a8fcc344cf0821d09d0a33bc75d1da274',1,'lcd.c']]],
+  ['lcd_5fsetregionsmono',['lcd_setRegionsMono',['../lcd_8h.html#aa3535e0602ba3602e1ad66b6d703eabe',1,'lcd.c']]],
   ['lcd_5fwidth',['LCD_WIDTH',['../lcd_8h.html#a19693eac3018d3e7800fde141921b812',1,'lcd.h']]]
 ];

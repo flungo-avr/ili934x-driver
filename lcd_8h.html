@@ -99,6 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;ili934x.h&quot;</code><br />
 <code>#include &quot;ili934x_cmd.h&quot;</code><br />
+<code>#include &quot;lcd_colour.h&quot;</code><br />
 <code>#include &quot;lcd_colour_basic.h&quot;</code><br />
 </div>
 <p><a href="lcd_8h_source.html">Go to the source code of this file.</a></p>
@@ -151,13 +152,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_
 <tr class="memitem:aada81a5e6d3bbaf247eec56fccc11535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#aada81a5e6d3bbaf247eec56fccc11535">lcd_setOrientation</a> (lcd_orientation orient)</td></tr>
 <tr class="memdesc:aada81a5e6d3bbaf247eec56fccc11535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the current orientation of the display.  <a href="#aada81a5e6d3bbaf247eec56fccc11535">More...</a><br /></td></tr>
 <tr class="separator:aada81a5e6d3bbaf247eec56fccc11535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accd40340a1b76ed9d39f50bfc946e8c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accd40340a1b76ed9d39f50bfc946e8c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#accd40340a1b76ed9d39f50bfc946e8c6">lcd_setBrightness</a> (uint8_t br)</td></tr>
-<tr class="memdesc:accd40340a1b76ed9d39f50bfc946e8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brightness level of the display. <br /></td></tr>
+<tr class="memitem:accd40340a1b76ed9d39f50bfc946e8c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#accd40340a1b76ed9d39f50bfc946e8c6">lcd_setBrightness</a> (uint8_t br)</td></tr>
+<tr class="memdesc:accd40340a1b76ed9d39f50bfc946e8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the brightness level of the display.  <a href="#accd40340a1b76ed9d39f50bfc946e8c6">More...</a><br /></td></tr>
 <tr class="separator:accd40340a1b76ed9d39f50bfc946e8c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a9afe1225ef81eca265b4389ab5caac"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a9afe1225ef81eca265b4389ab5caac"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a8a9afe1225ef81eca265b4389ab5caac">lcd_setFrameRateHz</a> (ili934x_mode mode, uint8_t fr)</td></tr>
-<tr class="memdesc:a8a9afe1225ef81eca265b4389ab5caac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the framerate of the display in Hz. <br /></td></tr>
+<tr class="memitem:a8a9afe1225ef81eca265b4389ab5caac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a8a9afe1225ef81eca265b4389ab5caac">lcd_setFrameRateHz</a> (ili934x_mode mode, uint8_t fr)</td></tr>
+<tr class="memdesc:a8a9afe1225ef81eca265b4389ab5caac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the framerate of the display in Hz.  <a href="#a8a9afe1225ef81eca265b4389ab5caac">More...</a><br /></td></tr>
 <tr class="separator:a8a9afe1225ef81eca265b4389ab5caac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21e38ea4d9e72e62fa4022406c4d1131"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a21e38ea4d9e72e62fa4022406c4d1131">lcd_selectRegion</a> (<a class="el" href="structlcd__region.html">lcd_region</a> region)</td></tr>
 <tr class="memdesc:a21e38ea4d9e72e62fa4022406c4d1131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the selected region of the display.  <a href="#a21e38ea4d9e72e62fa4022406c4d1131">More...</a><br /></td></tr>
@@ -165,9 +164,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_
 <tr class="memitem:a20be033fd14628f5bd3d63f36f1e0434"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a20be033fd14628f5bd3d63f36f1e0434">lcd_setColour</a> (lcd_colour16 colour)</td></tr>
 <tr class="memdesc:a20be033fd14628f5bd3d63f36f1e0434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the colour of the last selected region.  <a href="#a20be033fd14628f5bd3d63f36f1e0434">More...</a><br /></td></tr>
 <tr class="separator:a20be033fd14628f5bd3d63f36f1e0434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26bee71a7c7ca2d8b9f5b4eb6ab37dff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26bee71a7c7ca2d8b9f5b4eb6ab37dff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a26bee71a7c7ca2d8b9f5b4eb6ab37dff">lcd_setPixel</a> (<a class="el" href="structlcd__point.html">lcd_point</a> p, lcd_colour16 colour)</td></tr>
-<tr class="memdesc:a26bee71a7c7ca2d8b9f5b4eb6ab37dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an individual pixel to a specific colour. <br /></td></tr>
+<tr class="memitem:a26bee71a7c7ca2d8b9f5b4eb6ab37dff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a26bee71a7c7ca2d8b9f5b4eb6ab37dff">lcd_setPixel</a> (<a class="el" href="structlcd__point.html">lcd_point</a> p, lcd_colour16 colour)</td></tr>
+<tr class="memdesc:a26bee71a7c7ca2d8b9f5b4eb6ab37dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an individual pixel to a specific colour.  <a href="#a26bee71a7c7ca2d8b9f5b4eb6ab37dff">More...</a><br /></td></tr>
 <tr class="separator:a26bee71a7c7ca2d8b9f5b4eb6ab37dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44931b12765261d2c7fce5e6be6c986a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a44931b12765261d2c7fce5e6be6c986a">lcd_setPixels</a> (<a class="el" href="structlcd__point.html">lcd_point</a> *p, lcd_colour16 *colours, uint16_t np)</td></tr>
 <tr class="memdesc:a44931b12765261d2c7fce5e6be6c986a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps an array of pixels to the colours in an array of colours.  <a href="#a44931b12765261d2c7fce5e6be6c986a">More...</a><br /></td></tr>
@@ -178,27 +176,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_
 <tr class="memitem:abe1303a20303eef126129703ce67962f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#abe1303a20303eef126129703ce67962f">lcd_setPixelsMono</a> (<a class="el" href="structlcd__point.html">lcd_point</a> *p, lcd_colour16 colour, uint16_t np)</td></tr>
 <tr class="memdesc:abe1303a20303eef126129703ce67962f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Colours all of the pixels in the array <code>p</code> in the colour <code>colour</code>.  <a href="#abe1303a20303eef126129703ce67962f">More...</a><br /></td></tr>
 <tr class="separator:abe1303a20303eef126129703ce67962f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ee1fb31c2842e2a0d833520d9f9b2b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ee1fb31c2842e2a0d833520d9f9b2b8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lcd_setRegion</b> (<a class="el" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 colour)</td></tr>
+<tr class="memitem:a8ee1fb31c2842e2a0d833520d9f9b2b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a8ee1fb31c2842e2a0d833520d9f9b2b8">lcd_setRegion</a> (<a class="el" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 colour)</td></tr>
+<tr class="memdesc:a8ee1fb31c2842e2a0d833520d9f9b2b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the colour of a given region.  <a href="#a8ee1fb31c2842e2a0d833520d9f9b2b8">More...</a><br /></td></tr>
 <tr class="separator:a8ee1fb31c2842e2a0d833520d9f9b2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b5d5023abec187aa1dcf756f26dab49"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b5d5023abec187aa1dcf756f26dab49"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lcd_setRegions</b> (<a class="el" href="structlcd__region.html">lcd_region</a> *region, lcd_colour16 *colour, uint16_t nr)</td></tr>
+<tr class="memitem:a4b5d5023abec187aa1dcf756f26dab49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a4b5d5023abec187aa1dcf756f26dab49">lcd_setRegions</a> (<a class="el" href="structlcd__region.html">lcd_region</a> *region, lcd_colour16 *colour, uint16_t nr)</td></tr>
+<tr class="memdesc:a4b5d5023abec187aa1dcf756f26dab49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the colours of an array of colours to an array of regions.  <a href="#a4b5d5023abec187aa1dcf756f26dab49">More...</a><br /></td></tr>
 <tr class="separator:a4b5d5023abec187aa1dcf756f26dab49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fcc344cf0821d09d0a33bc75d1da274"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fcc344cf0821d09d0a33bc75d1da274"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lcd_setRegions8bit</b> (<a class="el" href="structlcd__region.html">lcd_region</a> *region, lcd_colour8 *colour, uint16_t nr)</td></tr>
+<tr class="memitem:a8fcc344cf0821d09d0a33bc75d1da274"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#a8fcc344cf0821d09d0a33bc75d1da274">lcd_setRegions8bit</a> (<a class="el" href="structlcd__region.html">lcd_region</a> *region, lcd_colour8 *colour, uint16_t nr)</td></tr>
+<tr class="memdesc:a8fcc344cf0821d09d0a33bc75d1da274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the colours of an array of colours to an array of regions.  <a href="#a8fcc344cf0821d09d0a33bc75d1da274">More...</a><br /></td></tr>
 <tr class="separator:a8fcc344cf0821d09d0a33bc75d1da274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3535e0602ba3602e1ad66b6d703eabe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3535e0602ba3602e1ad66b6d703eabe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lcd_setRegionsMono</b> (<a class="el" href="structlcd__region.html">lcd_region</a> *region, lcd_colour16 colour, uint16_t nr)</td></tr>
+<tr class="memitem:aa3535e0602ba3602e1ad66b6d703eabe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#aa3535e0602ba3602e1ad66b6d703eabe">lcd_setRegionsMono</a> (<a class="el" href="structlcd__region.html">lcd_region</a> *region, lcd_colour16 colour, uint16_t nr)</td></tr>
+<tr class="memdesc:aa3535e0602ba3602e1ad66b6d703eabe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Colours all of the regions in the array <code>region</code> in the colour <code>colour</code>.  <a href="#aa3535e0602ba3602e1ad66b6d703eabe">More...</a><br /></td></tr>
 <tr class="separator:aa3535e0602ba3602e1ad66b6d703eabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6e60935b4cf876b4276e2db7b3a97a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6e60935b4cf876b4276e2db7b3a97a7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lcd_setBitmap</b> (<a class="el" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 *colour)</td></tr>
+<tr class="memitem:ad6e60935b4cf876b4276e2db7b3a97a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#ad6e60935b4cf876b4276e2db7b3a97a7">lcd_setBitmap</a> (<a class="el" href="structlcd__region.html">lcd_region</a> region, lcd_colour16 *colour)</td></tr>
+<tr class="memdesc:ad6e60935b4cf876b4276e2db7b3a97a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a bitmap to a given region.  <a href="#ad6e60935b4cf876b4276e2db7b3a97a7">More...</a><br /></td></tr>
 <tr class="separator:ad6e60935b4cf876b4276e2db7b3a97a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9e259f0e40f526494ddb3fdcf150d9e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9e259f0e40f526494ddb3fdcf150d9e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lcd_setBitmap8bit</b> (<a class="el" href="structlcd__region.html">lcd_region</a> region, lcd_colour8 *colour)</td></tr>
+<tr class="memitem:ad9e259f0e40f526494ddb3fdcf150d9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#ad9e259f0e40f526494ddb3fdcf150d9e">lcd_setBitmap8bit</a> (<a class="el" href="structlcd__region.html">lcd_region</a> region, lcd_colour8 *colour)</td></tr>
+<tr class="memdesc:ad9e259f0e40f526494ddb3fdcf150d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays an 8-bit bitmap to a given region.  <a href="#ad9e259f0e40f526494ddb3fdcf150d9e">More...</a><br /></td></tr>
 <tr class="separator:ad9e259f0e40f526494ddb3fdcf150d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab062b5a1751625ce8fecea2ebc3ff31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab062b5a1751625ce8fecea2ebc3ff31"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>lcd_setBitmapMono</b> (<a class="el" href="structlcd__region.html">lcd_region</a> region, uint8_t *data, uint8_t bpc)</td></tr>
-<tr class="separator:aab062b5a1751625ce8fecea2ebc3ff31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae04d2f81fa38635f374d3b0efc944738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lcd_8h.html#ae04d2f81fa38635f374d3b0efc944738">lcd_setBitmapMono</a> (<a class="el" href="structlcd__region.html">lcd_region</a> region, uint8_t *data, uint8_t bpr)</td></tr>
+<tr class="memdesc:ae04d2f81fa38635f374d3b0efc944738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays a mono bitmap to a given region.  <a href="#ae04d2f81fa38635f374d3b0efc944738">More...</a><br /></td></tr>
+<tr class="separator:ae04d2f81fa38635f374d3b0efc944738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a046c0f4d1dbf116dcd9f8ddc3b0642f2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a046c0f4d1dbf116dcd9f8ddc3b0642f2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>lcd_setRegionFunction</b> (<a class="el" href="structlcd__region.html">lcd_region</a> region, lcd_colour16(*f)(uint16_t x, uint16_t), bool relative)</td></tr>
 <tr class="separator:a046c0f4d1dbf116dcd9f8ddc3b0642f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -266,7 +264,154 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the selected region of the display. </p>
-<p><a class="el" href="lcd_8h.html#a20be033fd14628f5bd3d63f36f1e0434" title="Sets the colour of the last selected region. ">lcd_setColour(lcd_colour16)</a> can then be used to change the colour of this region. </p>
+<p><a class="el" href="lcd_8h.html#a20be033fd14628f5bd3d63f36f1e0434" title="Sets the colour of the last selected region. ">lcd_setColour(lcd_colour16)</a> can then be used to change the colour of this region.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">region</td><td>the region of the display to be selected </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad6e60935b4cf876b4276e2db7b3a97a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setBitmap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlcd__region.html">lcd_region</a>&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lcd_colour16 *&#160;</td>
+          <td class="paramname"><em>colour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays a bitmap to a given region. </p>
+<p>For each pixel in the region (going from left to right before wrapping around) the next colour in the array of colours will be used. Every pixel will be set, so this cannot be used for for any graphic that will not fit in a square.</p>
+<p>The <code>colour</code> array should have at least <code>(region.right - region.left) * (region.bottom - region.top)</code> (i.e. <code>region.height * region.width</code> - the area of the region in pixels) elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">region</td><td>the region that will be filled with the bit map </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">colour</td><td>pointer to the first element in the map of 16 bit colours </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad9e259f0e40f526494ddb3fdcf150d9e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setBitmap8bit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlcd__region.html">lcd_region</a>&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lcd_colour8 *&#160;</td>
+          <td class="paramname"><em>colour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays an 8-bit bitmap to a given region. </p>
+<p>For each pixel in the region (going from left to right before wrapping around) the next colour in the array of colours will be used. Every pixel will be set, so this cannot be used for for any graphic that will not fit in a square.</p>
+<p>The <code>colour</code> array should have at least <code>(region.right - region.left) * (region.bottom - region.top)</code> (i.e. <code>region.height * region.width</code> - the area of the region in pixels) elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">region</td><td>the region that will be filled with the bit map </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">colour</td><td>pointer to the first element in the map of 8 bit colour </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae04d2f81fa38635f374d3b0efc944738"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setBitmapMono </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlcd__region.html">lcd_region</a>&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>bpr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Displays a mono bitmap to a given region. </p>
+<p>For each pixel in the region (going from left to right before wrapping around) one bit of the data will be read (from LSB to MSB) and if that bit is a <code>1</code> forground will be displayed and if it is a <code>0</code> background will be used. Foreground and background are based on that defined in the <code><a class="el" href="structlcd__display.html">lcd_display</a></code>.</p>
+<p><code>bpr</code> defines how many bits should be used per row. This allows for better use of the available bits when the width of the region is not divisible by 8. When the width of the region is less than the <code>bpr</code> value, then background will be writen into the rest of the given region's width. When <code>bpr</code> is greater than the width of the given region, additional bits of data will be ignored.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">region</td><td>the region that will be filled with the bit map </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>the pointer to the first byte of the bitmap data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="accd40340a1b76ed9d39f50bfc946e8c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setBrightness </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>br</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the brightness level of the display. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">br</td><td>the brightness as a value from <code>0</code> to <code>255</code> where <code>255</code> is the brightest </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -285,7 +430,50 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the colour of the last selected region. </p>
-<p>Provides a slight performance buff over setRegion as the region does not have to be reselected in order to change the colour. Has limited use case since it can only be applied to the last selected region </p>
+<p>Provides a slight performance buff over setRegion as the region does not have to be reselected in order to change the colour. Has limited use case since it can only be applied to the last selected region</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">colour</td><td>the colour to set the previously selected region to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8a9afe1225ef81eca265b4389ab5caac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setFrameRateHz </td>
+          <td>(</td>
+          <td class="paramtype">ili934x_mode&#160;</td>
+          <td class="paramname"><em>mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>fr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the framerate of the display in Hz. </p>
+<p>Calculates the configuration to provide the framerate that is closest to the desired framerate given in hertz (Hz).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>The mode you want to set the framerate for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fr</td><td>The desired framerate in Hz. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>ili934x_mode </dd></dl>
 
 </div>
 </div>
@@ -304,7 +492,48 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set the current orientation of the display. </p>
-<p>When the orientation is changed, the screen is cleared. </p>
+<p>When the orientation is changed, the screen is cleared.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">orient</td><td>The orientation to set the display to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a26bee71a7c7ca2d8b9f5b4eb6ab37dff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setPixel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlcd__point.html">lcd_point</a>&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lcd_colour16&#160;</td>
+          <td class="paramname"><em>colour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set an individual pixel to a specific colour. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>the co-ordinates of the pixel to colour from the top left corner of the display </td></tr>
+    <tr><td class="paramname">colour</td><td>the colour to set the pixel to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -339,7 +568,15 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Maps an array of pixels to the colours in an array of colours. </p>
-<p>For each point <code>p</code> with index <code>i</code> the pixel will be coloured with the colour with the corresponding colour of index <code>i</code> from the <code>colours</code> array. Both <code>p</code> and <code>colours</code> should have at least <code>np</code> elements. </p>
+<p>For each point <code>p</code> with index <code>i</code> the pixel will be coloured with the colour with the corresponding colour of index <code>i</code> from the <code>colours</code> array. Both <code>p</code> and <code>colours</code> should have at least <code>np</code> elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pointer to the first element in an array of points </td></tr>
+    <tr><td class="paramname">colours</td><td>pointer to the first element in an array of colours </td></tr>
+    <tr><td class="paramname">np</td><td>the number of points in the array </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -375,7 +612,15 @@ Variables</h2></td></tr>
 
 <p>Maps an array of pixels to the colours in an array of colours. </p>
 <p>For each point <code>p</code> with index <code>i</code> the pixel will be coloured with the colour with the corresponding colour of index <code>i</code> from the <code>colours</code> array. Both <code>p</code> and <code>colours</code> should have at least <code>np</code> elements.</p>
-<p>For large arrays of points, using 8-bit colour will reduce the memory overhead </p>
+<p>For large arrays of points, using 8-bit colour will reduce the memory overhead.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pointer to the first element in an array of points </td></tr>
+    <tr><td class="paramname">colours</td><td>pointer to the first element in an array of colours </td></tr>
+    <tr><td class="paramname">np</td><td>the number of points in the array </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -410,14 +655,186 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Colours all of the pixels in the array <code>p</code> in the colour <code>colour</code>. </p>
-<p>The length of the array <code>p</code> should be at least <code>np</code> elements long. </p>
+<p>The length of the array <code>p</code> should be at least <code>np</code> elements long.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>pointer to the first element in an array of points </td></tr>
+    <tr><td class="paramname">colour</td><td>the colour to set the pixels to </td></tr>
+    <tr><td class="paramname">np</td><td>the number of points in the array </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8ee1fb31c2842e2a0d833520d9f9b2b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setRegion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlcd__region.html">lcd_region</a>&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lcd_colour16&#160;</td>
+          <td class="paramname"><em>colour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the colour of a given region. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">region</td><td>the region to set the colour for </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">colour</td><td>the colour to set the region to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4b5d5023abec187aa1dcf756f26dab49"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setRegions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlcd__region.html">lcd_region</a> *&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lcd_colour16 *&#160;</td>
+          <td class="paramname"><em>colour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>nr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maps the colours of an array of colours to an array of regions. </p>
+<p>For each region <code>r</code> with index <code>i</code> the region will be coloured with the colour with the corresponding colour of index <code>i</code> from the <code>colours</code> array. Both <code>region</code> and <code>colours</code> should have at least <code>np</code> elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">region</td><td>pointer to the first element of the array of regions to colour </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">colour</td><td>pointer to the first element of the array of colours to map to regions </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">np</td><td>the number of regions in the array </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8fcc344cf0821d09d0a33bc75d1da274"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setRegions8bit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlcd__region.html">lcd_region</a> *&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lcd_colour8 *&#160;</td>
+          <td class="paramname"><em>colour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>nr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maps the colours of an array of colours to an array of regions. </p>
+<p>For each region <code>r</code> with index <code>i</code> the region will be coloured with the colour with the corresponding colour of index <code>i</code> from the <code>colours</code> array. Both <code>region</code> and <code>colours</code> should have at least <code>np</code> elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">region</td><td>pointer to the first element of the array of regions to colour </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">colour</td><td>pointer to the first element of the array of 8 bit colours to map to regions </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">np</td><td>the number of regions in the array </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa3535e0602ba3602e1ad66b6d703eabe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lcd_setRegionsMono </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlcd__region.html">lcd_region</a> *&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lcd_colour16&#160;</td>
+          <td class="paramname"><em>colour</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>nr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Colours all of the regions in the array <code>region</code> in the colour <code>colour</code>. </p>
+<p>The length of the array <code>p</code> should be at least <code>np</code> elements long.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">region</td><td>pointer to the first element in an array of points </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">colour</td><td>the colour to set the pixels to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">np</td><td>the number of points in the array </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 12 2015 12:11:54 for ILI934X Driver by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 14 2015 20:36:19 for ILI934X Driver by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
