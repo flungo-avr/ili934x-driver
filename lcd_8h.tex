@@ -9,6 +9,7 @@ Methods for an L\+C\+D that uses the I\+L\+I934\+X display driver.
 {\ttfamily \#include $<$stdint.\+h$>$}\\*
 {\ttfamily \#include \char`\"{}ili934x.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}ili934x\+\_\+cmd.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}lcd\+\_\+colour.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}lcd\+\_\+colour\+\_\+basic.\+h\char`\"{}}\\*
 \subsection*{Data Structures}
 \begin{DoxyCompactItemize}
@@ -54,18 +55,15 @@ void \hyperlink{lcd_8h_ac23e73124dc9fabae95671fe71d074a6}{lcd\+\_\+init} ()
 \begin{DoxyCompactList}\small\item\em Turns off the display and disables the backlight. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_aada81a5e6d3bbaf247eec56fccc11535}{lcd\+\_\+set\+Orientation} (lcd\+\_\+orientation orient)
 \begin{DoxyCompactList}\small\item\em Set the current orientation of the display. \end{DoxyCompactList}\item 
-\hypertarget{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}{}void \hyperlink{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}{lcd\+\_\+set\+Brightness} (uint8\+\_\+t br)\label{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}
-
+void \hyperlink{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}{lcd\+\_\+set\+Brightness} (uint8\+\_\+t br)
 \begin{DoxyCompactList}\small\item\em Set the brightness level of the display. \end{DoxyCompactList}\item 
-\hypertarget{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}{}void \hyperlink{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}{lcd\+\_\+set\+Frame\+Rate\+Hz} (ili934x\+\_\+mode mode, uint8\+\_\+t fr)\label{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}
-
+void \hyperlink{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}{lcd\+\_\+set\+Frame\+Rate\+Hz} (ili934x\+\_\+mode mode, uint8\+\_\+t fr)
 \begin{DoxyCompactList}\small\item\em Set the framerate of the display in Hz. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_a21e38ea4d9e72e62fa4022406c4d1131}{lcd\+\_\+select\+Region} (\hyperlink{structlcd__region}{lcd\+\_\+region} region)
 \begin{DoxyCompactList}\small\item\em Sets the selected region of the display. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}{lcd\+\_\+set\+Colour} (lcd\+\_\+colour16 colour)
 \begin{DoxyCompactList}\small\item\em Sets the colour of the last selected region. \end{DoxyCompactList}\item 
-\hypertarget{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}{}void \hyperlink{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}{lcd\+\_\+set\+Pixel} (\hyperlink{structlcd__point}{lcd\+\_\+point} p, lcd\+\_\+colour16 colour)\label{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}
-
+void \hyperlink{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}{lcd\+\_\+set\+Pixel} (\hyperlink{structlcd__point}{lcd\+\_\+point} p, lcd\+\_\+colour16 colour)
 \begin{DoxyCompactList}\small\item\em Set an individual pixel to a specific colour. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_a44931b12765261d2c7fce5e6be6c986a}{lcd\+\_\+set\+Pixels} (\hyperlink{structlcd__point}{lcd\+\_\+point} $\ast$p, lcd\+\_\+colour16 $\ast$colours, uint16\+\_\+t np)
 \begin{DoxyCompactList}\small\item\em Maps an array of pixels to the colours in an array of colours. \end{DoxyCompactList}\item 
@@ -73,27 +71,20 @@ void \hyperlink{lcd_8h_a1cd47984e52e4e7bd1e0913b08aa317f}{lcd\+\_\+set\+Pixels8b
 \begin{DoxyCompactList}\small\item\em Maps an array of pixels to the colours in an array of colours. \end{DoxyCompactList}\item 
 void \hyperlink{lcd_8h_abe1303a20303eef126129703ce67962f}{lcd\+\_\+set\+Pixels\+Mono} (\hyperlink{structlcd__point}{lcd\+\_\+point} $\ast$p, lcd\+\_\+colour16 colour, uint16\+\_\+t np)
 \begin{DoxyCompactList}\small\item\em Colours all of the pixels in the array {\ttfamily p} in the colour {\ttfamily colour}. \end{DoxyCompactList}\item 
-\hypertarget{lcd_8h_a8ee1fb31c2842e2a0d833520d9f9b2b8}{}void {\bfseries lcd\+\_\+set\+Region} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour16 colour)\label{lcd_8h_a8ee1fb31c2842e2a0d833520d9f9b2b8}
-
-\item 
-\hypertarget{lcd_8h_a4b5d5023abec187aa1dcf756f26dab49}{}void {\bfseries lcd\+\_\+set\+Regions} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour16 $\ast$colour, uint16\+\_\+t nr)\label{lcd_8h_a4b5d5023abec187aa1dcf756f26dab49}
-
-\item 
-\hypertarget{lcd_8h_a8fcc344cf0821d09d0a33bc75d1da274}{}void {\bfseries lcd\+\_\+set\+Regions8bit} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour8 $\ast$colour, uint16\+\_\+t nr)\label{lcd_8h_a8fcc344cf0821d09d0a33bc75d1da274}
-
-\item 
-\hypertarget{lcd_8h_aa3535e0602ba3602e1ad66b6d703eabe}{}void {\bfseries lcd\+\_\+set\+Regions\+Mono} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour16 colour, uint16\+\_\+t nr)\label{lcd_8h_aa3535e0602ba3602e1ad66b6d703eabe}
-
-\item 
-\hypertarget{lcd_8h_ad6e60935b4cf876b4276e2db7b3a97a7}{}void {\bfseries lcd\+\_\+set\+Bitmap} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour16 $\ast$colour)\label{lcd_8h_ad6e60935b4cf876b4276e2db7b3a97a7}
-
-\item 
-\hypertarget{lcd_8h_ad9e259f0e40f526494ddb3fdcf150d9e}{}void {\bfseries lcd\+\_\+set\+Bitmap8bit} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour8 $\ast$colour)\label{lcd_8h_ad9e259f0e40f526494ddb3fdcf150d9e}
-
-\item 
-\hypertarget{lcd_8h_aab062b5a1751625ce8fecea2ebc3ff31}{}void {\bfseries lcd\+\_\+set\+Bitmap\+Mono} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, uint8\+\_\+t $\ast$data, uint8\+\_\+t bpc)\label{lcd_8h_aab062b5a1751625ce8fecea2ebc3ff31}
-
-\item 
+void \hyperlink{lcd_8h_a8ee1fb31c2842e2a0d833520d9f9b2b8}{lcd\+\_\+set\+Region} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour16 colour)
+\begin{DoxyCompactList}\small\item\em Sets the colour of a given region. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_a4b5d5023abec187aa1dcf756f26dab49}{lcd\+\_\+set\+Regions} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour16 $\ast$colour, uint16\+\_\+t nr)
+\begin{DoxyCompactList}\small\item\em Maps the colours of an array of colours to an array of regions. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_a8fcc344cf0821d09d0a33bc75d1da274}{lcd\+\_\+set\+Regions8bit} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour8 $\ast$colour, uint16\+\_\+t nr)
+\begin{DoxyCompactList}\small\item\em Maps the colours of an array of colours to an array of regions. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_aa3535e0602ba3602e1ad66b6d703eabe}{lcd\+\_\+set\+Regions\+Mono} (\hyperlink{structlcd__region}{lcd\+\_\+region} $\ast$region, lcd\+\_\+colour16 colour, uint16\+\_\+t nr)
+\begin{DoxyCompactList}\small\item\em Colours all of the regions in the array {\ttfamily region} in the colour {\ttfamily colour}. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_ad6e60935b4cf876b4276e2db7b3a97a7}{lcd\+\_\+set\+Bitmap} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour16 $\ast$colour)
+\begin{DoxyCompactList}\small\item\em Displays a bitmap to a given region. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_ad9e259f0e40f526494ddb3fdcf150d9e}{lcd\+\_\+set\+Bitmap8bit} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour8 $\ast$colour)
+\begin{DoxyCompactList}\small\item\em Displays an 8-\/bit bitmap to a given region. \end{DoxyCompactList}\item 
+void \hyperlink{lcd_8h_ae04d2f81fa38635f374d3b0efc944738}{lcd\+\_\+set\+Bitmap\+Mono} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, uint8\+\_\+t $\ast$data, uint8\+\_\+t bpr)
+\begin{DoxyCompactList}\small\item\em Displays a mono bitmap to a given region. \end{DoxyCompactList}\item 
 \hypertarget{lcd_8h_a046c0f4d1dbf116dcd9f8ddc3b0642f2}{}void {\bfseries lcd\+\_\+set\+Region\+Function} (\hyperlink{structlcd__region}{lcd\+\_\+region} region, lcd\+\_\+colour16($\ast$f)(uint16\+\_\+t x, uint16\+\_\+t), bool relative)\label{lcd_8h_a046c0f4d1dbf116dcd9f8ddc3b0642f2}
 
 \item 
@@ -159,7 +150,100 @@ Uses the configuration to set up the display in a default state. When method ret
 
 Sets the selected region of the display. 
 
-\hyperlink{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}{lcd\+\_\+set\+Colour(lcd\+\_\+colour16)} can then be used to change the colour of this region. \hypertarget{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Colour@{lcd\+\_\+set\+Colour}}
+\hyperlink{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}{lcd\+\_\+set\+Colour(lcd\+\_\+colour16)} can then be used to change the colour of this region.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em region} & the region of the display to be selected \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_ad6e60935b4cf876b4276e2db7b3a97a7}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Bitmap@{lcd\+\_\+set\+Bitmap}}
+\index{lcd\+\_\+set\+Bitmap@{lcd\+\_\+set\+Bitmap}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Bitmap}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Bitmap (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+region}}]{region, }
+\item[{lcd\+\_\+colour16 $\ast$}]{colour}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_ad6e60935b4cf876b4276e2db7b3a97a7}
+
+
+Displays a bitmap to a given region. 
+
+For each pixel in the region (going from left to right before wrapping around) the next colour in the array of colours will be used. Every pixel will be set, so this cannot be used for for any graphic that will not fit in a square.
+
+The {\ttfamily colour} array should have at least {\ttfamily (region.\+right -\/ region.\+left) $\ast$ (region.\+bottom -\/ region.\+top)} (i.\+e. {\ttfamily region.\+height $\ast$ region.\+width} -\/ the area of the region in pixels) elements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em region} & the region that will be filled with the bit map \\
+\hline
+\mbox{\tt in}  & {\em colour} & pointer to the first element in the map of 16 bit colours \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_ad9e259f0e40f526494ddb3fdcf150d9e}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Bitmap8bit@{lcd\+\_\+set\+Bitmap8bit}}
+\index{lcd\+\_\+set\+Bitmap8bit@{lcd\+\_\+set\+Bitmap8bit}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Bitmap8bit}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Bitmap8bit (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+region}}]{region, }
+\item[{lcd\+\_\+colour8 $\ast$}]{colour}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_ad9e259f0e40f526494ddb3fdcf150d9e}
+
+
+Displays an 8-\/bit bitmap to a given region. 
+
+For each pixel in the region (going from left to right before wrapping around) the next colour in the array of colours will be used. Every pixel will be set, so this cannot be used for for any graphic that will not fit in a square.
+
+The {\ttfamily colour} array should have at least {\ttfamily (region.\+right -\/ region.\+left) $\ast$ (region.\+bottom -\/ region.\+top)} (i.\+e. {\ttfamily region.\+height $\ast$ region.\+width} -\/ the area of the region in pixels) elements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em region} & the region that will be filled with the bit map \\
+\hline
+\mbox{\tt in}  & {\em colour} & pointer to the first element in the map of 8 bit colour \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_ae04d2f81fa38635f374d3b0efc944738}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Bitmap\+Mono@{lcd\+\_\+set\+Bitmap\+Mono}}
+\index{lcd\+\_\+set\+Bitmap\+Mono@{lcd\+\_\+set\+Bitmap\+Mono}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Bitmap\+Mono}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Bitmap\+Mono (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+region}}]{region, }
+\item[{uint8\+\_\+t $\ast$}]{data, }
+\item[{uint8\+\_\+t}]{bpr}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_ae04d2f81fa38635f374d3b0efc944738}
+
+
+Displays a mono bitmap to a given region. 
+
+For each pixel in the region (going from left to right before wrapping around) one bit of the data will be read (from L\+S\+B to M\+S\+B) and if that bit is a {\ttfamily 1} forground will be displayed and if it is a {\ttfamily 0} background will be used. Foreground and background are based on that defined in the {\ttfamily \hyperlink{structlcd__display}{lcd\+\_\+display}}.
+
+{\ttfamily bpr} defines how many bits should be used per row. This allows for better use of the available bits when the width of the region is not divisible by 8. When the width of the region is less than the {\ttfamily bpr} value, then background will be writen into the rest of the given region\textquotesingle{}s width. When {\ttfamily bpr} is greater than the width of the given region, additional bits of data will be ignored.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em region} & the region that will be filled with the bit map \\
+\hline
+\mbox{\tt in}  & {\em data} & the pointer to the first byte of the bitmap data \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Brightness@{lcd\+\_\+set\+Brightness}}
+\index{lcd\+\_\+set\+Brightness@{lcd\+\_\+set\+Brightness}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Brightness}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Brightness (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{br}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_accd40340a1b76ed9d39f50bfc946e8c6}
+
+
+Set the brightness level of the display. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em br} & the brightness as a value from {\ttfamily 0} to {\ttfamily 255} where {\ttfamily 255} is the brightest \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_a20be033fd14628f5bd3d63f36f1e0434}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Colour@{lcd\+\_\+set\+Colour}}
 \index{lcd\+\_\+set\+Colour@{lcd\+\_\+set\+Colour}!lcd.\+h@{lcd.\+h}}
 \subsubsection[{lcd\+\_\+set\+Colour}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Colour (
 \begin{DoxyParamCaption}
@@ -170,7 +254,38 @@ Sets the selected region of the display.
 
 Sets the colour of the last selected region. 
 
-Provides a slight performance buff over set\+Region as the region does not have to be reselected in order to change the colour. Has limited use case since it can only be applied to the last selected region \hypertarget{lcd_8h_aada81a5e6d3bbaf247eec56fccc11535}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Orientation@{lcd\+\_\+set\+Orientation}}
+Provides a slight performance buff over set\+Region as the region does not have to be reselected in order to change the colour. Has limited use case since it can only be applied to the last selected region
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em colour} & the colour to set the previously selected region to \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Frame\+Rate\+Hz@{lcd\+\_\+set\+Frame\+Rate\+Hz}}
+\index{lcd\+\_\+set\+Frame\+Rate\+Hz@{lcd\+\_\+set\+Frame\+Rate\+Hz}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Frame\+Rate\+Hz}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Frame\+Rate\+Hz (
+\begin{DoxyParamCaption}
+\item[{ili934x\+\_\+mode}]{mode, }
+\item[{uint8\+\_\+t}]{fr}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a8a9afe1225ef81eca265b4389ab5caac}
+
+
+Set the framerate of the display in Hz. 
+
+Calculates the configuration to provide the framerate that is closest to the desired framerate given in hertz (Hz).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & The mode you want to set the framerate for. \\
+\hline
+\mbox{\tt in}  & {\em fr} & The desired framerate in Hz. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+ili934x\+\_\+mode 
+\end{DoxySeeAlso}
+\hypertarget{lcd_8h_aada81a5e6d3bbaf247eec56fccc11535}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Orientation@{lcd\+\_\+set\+Orientation}}
 \index{lcd\+\_\+set\+Orientation@{lcd\+\_\+set\+Orientation}!lcd.\+h@{lcd.\+h}}
 \subsubsection[{lcd\+\_\+set\+Orientation}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Orientation (
 \begin{DoxyParamCaption}
@@ -181,7 +296,33 @@ Provides a slight performance buff over set\+Region as the region does not have 
 
 Set the current orientation of the display. 
 
-When the orientation is changed, the screen is cleared. \hypertarget{lcd_8h_a44931b12765261d2c7fce5e6be6c986a}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels@{lcd\+\_\+set\+Pixels}}
+When the orientation is changed, the screen is cleared.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em orient} & The orientation to set the display to \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixel@{lcd\+\_\+set\+Pixel}}
+\index{lcd\+\_\+set\+Pixel@{lcd\+\_\+set\+Pixel}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Pixel}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Pixel (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+point}}]{p, }
+\item[{lcd\+\_\+colour16}]{colour}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a26bee71a7c7ca2d8b9f5b4eb6ab37dff}
+
+
+Set an individual pixel to a specific colour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the co-\/ordinates of the pixel to colour from the top left corner of the display \\
+\hline
+{\em colour} & the colour to set the pixel to \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_a44931b12765261d2c7fce5e6be6c986a}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels@{lcd\+\_\+set\+Pixels}}
 \index{lcd\+\_\+set\+Pixels@{lcd\+\_\+set\+Pixels}!lcd.\+h@{lcd.\+h}}
 \subsubsection[{lcd\+\_\+set\+Pixels}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Pixels (
 \begin{DoxyParamCaption}
@@ -194,7 +335,18 @@ When the orientation is changed, the screen is cleared. \hypertarget{lcd_8h_a449
 
 Maps an array of pixels to the colours in an array of colours. 
 
-For each point {\ttfamily p} with index {\ttfamily i} the pixel will be coloured with the colour with the corresponding colour of index {\ttfamily i} from the {\ttfamily colours} array. Both {\ttfamily p} and {\ttfamily colours} should have at least {\ttfamily np} elements. \hypertarget{lcd_8h_a1cd47984e52e4e7bd1e0913b08aa317f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels8bit@{lcd\+\_\+set\+Pixels8bit}}
+For each point {\ttfamily p} with index {\ttfamily i} the pixel will be coloured with the colour with the corresponding colour of index {\ttfamily i} from the {\ttfamily colours} array. Both {\ttfamily p} and {\ttfamily colours} should have at least {\ttfamily np} elements.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pointer to the first element in an array of points \\
+\hline
+{\em colours} & pointer to the first element in an array of colours \\
+\hline
+{\em np} & the number of points in the array \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_a1cd47984e52e4e7bd1e0913b08aa317f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels8bit@{lcd\+\_\+set\+Pixels8bit}}
 \index{lcd\+\_\+set\+Pixels8bit@{lcd\+\_\+set\+Pixels8bit}!lcd.\+h@{lcd.\+h}}
 \subsubsection[{lcd\+\_\+set\+Pixels8bit}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Pixels8bit (
 \begin{DoxyParamCaption}
@@ -209,7 +361,18 @@ Maps an array of pixels to the colours in an array of colours.
 
 For each point {\ttfamily p} with index {\ttfamily i} the pixel will be coloured with the colour with the corresponding colour of index {\ttfamily i} from the {\ttfamily colours} array. Both {\ttfamily p} and {\ttfamily colours} should have at least {\ttfamily np} elements.
 
-For large arrays of points, using 8-\/bit colour will reduce the memory overhead \hypertarget{lcd_8h_abe1303a20303eef126129703ce67962f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels\+Mono@{lcd\+\_\+set\+Pixels\+Mono}}
+For large arrays of points, using 8-\/bit colour will reduce the memory overhead.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pointer to the first element in an array of points \\
+\hline
+{\em colours} & pointer to the first element in an array of colours \\
+\hline
+{\em np} & the number of points in the array \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_abe1303a20303eef126129703ce67962f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels\+Mono@{lcd\+\_\+set\+Pixels\+Mono}}
 \index{lcd\+\_\+set\+Pixels\+Mono@{lcd\+\_\+set\+Pixels\+Mono}!lcd.\+h@{lcd.\+h}}
 \subsubsection[{lcd\+\_\+set\+Pixels\+Mono}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Pixels\+Mono (
 \begin{DoxyParamCaption}
@@ -222,4 +385,105 @@ For large arrays of points, using 8-\/bit colour will reduce the memory overhead
 
 Colours all of the pixels in the array {\ttfamily p} in the colour {\ttfamily colour}. 
 
-The length of the array {\ttfamily p} should be at least {\ttfamily np} elements long. 
+The length of the array {\ttfamily p} should be at least {\ttfamily np} elements long.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pointer to the first element in an array of points \\
+\hline
+{\em colour} & the colour to set the pixels to \\
+\hline
+{\em np} & the number of points in the array \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_a8ee1fb31c2842e2a0d833520d9f9b2b8}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Region@{lcd\+\_\+set\+Region}}
+\index{lcd\+\_\+set\+Region@{lcd\+\_\+set\+Region}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Region}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Region (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+region}}]{region, }
+\item[{lcd\+\_\+colour16}]{colour}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a8ee1fb31c2842e2a0d833520d9f9b2b8}
+
+
+Sets the colour of a given region. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em region} & the region to set the colour for \\
+\hline
+\mbox{\tt in}  & {\em colour} & the colour to set the region to \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_a4b5d5023abec187aa1dcf756f26dab49}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Regions@{lcd\+\_\+set\+Regions}}
+\index{lcd\+\_\+set\+Regions@{lcd\+\_\+set\+Regions}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Regions}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Regions (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+region} $\ast$}]{region, }
+\item[{lcd\+\_\+colour16 $\ast$}]{colour, }
+\item[{uint16\+\_\+t}]{nr}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a4b5d5023abec187aa1dcf756f26dab49}
+
+
+Maps the colours of an array of colours to an array of regions. 
+
+For each region {\ttfamily r} with index {\ttfamily i} the region will be coloured with the colour with the corresponding colour of index {\ttfamily i} from the {\ttfamily colours} array. Both {\ttfamily region} and {\ttfamily colours} should have at least {\ttfamily np} elements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em region} & pointer to the first element of the array of regions to colour \\
+\hline
+\mbox{\tt in}  & {\em colour} & pointer to the first element of the array of colours to map to regions \\
+\hline
+\mbox{\tt in}  & {\em np} & the number of regions in the array \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_a8fcc344cf0821d09d0a33bc75d1da274}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Regions8bit@{lcd\+\_\+set\+Regions8bit}}
+\index{lcd\+\_\+set\+Regions8bit@{lcd\+\_\+set\+Regions8bit}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Regions8bit}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Regions8bit (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+region} $\ast$}]{region, }
+\item[{lcd\+\_\+colour8 $\ast$}]{colour, }
+\item[{uint16\+\_\+t}]{nr}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_a8fcc344cf0821d09d0a33bc75d1da274}
+
+
+Maps the colours of an array of colours to an array of regions. 
+
+For each region {\ttfamily r} with index {\ttfamily i} the region will be coloured with the colour with the corresponding colour of index {\ttfamily i} from the {\ttfamily colours} array. Both {\ttfamily region} and {\ttfamily colours} should have at least {\ttfamily np} elements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em region} & pointer to the first element of the array of regions to colour \\
+\hline
+\mbox{\tt in}  & {\em colour} & pointer to the first element of the array of 8 bit colours to map to regions \\
+\hline
+\mbox{\tt in}  & {\em np} & the number of regions in the array \\
+\hline
+\end{DoxyParams}
+\hypertarget{lcd_8h_aa3535e0602ba3602e1ad66b6d703eabe}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Regions\+Mono@{lcd\+\_\+set\+Regions\+Mono}}
+\index{lcd\+\_\+set\+Regions\+Mono@{lcd\+\_\+set\+Regions\+Mono}!lcd.\+h@{lcd.\+h}}
+\subsubsection[{lcd\+\_\+set\+Regions\+Mono}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\+\_\+set\+Regions\+Mono (
+\begin{DoxyParamCaption}
+\item[{{\bf lcd\+\_\+region} $\ast$}]{region, }
+\item[{lcd\+\_\+colour16}]{colour, }
+\item[{uint16\+\_\+t}]{nr}
+\end{DoxyParamCaption}
+)}\label{lcd_8h_aa3535e0602ba3602e1ad66b6d703eabe}
+
+
+Colours all of the regions in the array {\ttfamily region} in the colour {\ttfamily colour}. 
+
+The length of the array {\ttfamily p} should be at least {\ttfamily np} elements long.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em region} & pointer to the first element in an array of points \\
+\hline
+\mbox{\tt in}  & {\em colour} & the colour to set the pixels to \\
+\hline
+\mbox{\tt in}  & {\em np} & the number of points in the array \\
+\hline
+\end{DoxyParams}
