@@ -316,10 +316,10 @@ When the orientation is changed, the screen is cleared.
 Set an individual pixel to a specific colour. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em p} & the co-\/ordinates of the pixel to colour from the top left corner of the display \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p} & the co-\/ordinates of the pixel to colour from the top left corner of display \\
 \hline
-{\em colour} & the colour to set the pixel to \\
+\mbox{\tt in}  & {\em colour} & the colour to set the pixel to \\
 \hline
 \end{DoxyParams}
 \hypertarget{lcd_8h_a44931b12765261d2c7fce5e6be6c986a}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels@{lcd\+\_\+set\+Pixels}}
@@ -338,12 +338,12 @@ Maps an array of pixels to the colours in an array of colours.
 For each point {\ttfamily p} with index {\ttfamily i} the pixel will be coloured with the colour with the corresponding colour of index {\ttfamily i} from the {\ttfamily colours} array. Both {\ttfamily p} and {\ttfamily colours} should have at least {\ttfamily np} elements.
 
 
-\begin{DoxyParams}{Parameters}
-{\em p} & pointer to the first element in an array of points \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p} & pointer to the first element in an array of points \\
 \hline
-{\em colours} & pointer to the first element in an array of colours \\
+\mbox{\tt in}  & {\em colours} & pointer to the first element in an array of colours \\
 \hline
-{\em np} & the number of points in the array \\
+\mbox{\tt in}  & {\em np} & the number of points in the array \\
 \hline
 \end{DoxyParams}
 \hypertarget{lcd_8h_a1cd47984e52e4e7bd1e0913b08aa317f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels8bit@{lcd\+\_\+set\+Pixels8bit}}
@@ -364,12 +364,12 @@ For each point {\ttfamily p} with index {\ttfamily i} the pixel will be coloured
 For large arrays of points, using 8-\/bit colour will reduce the memory overhead.
 
 
-\begin{DoxyParams}{Parameters}
-{\em p} & pointer to the first element in an array of points \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p} & pointer to the first element in an array of points \\
 \hline
-{\em colours} & pointer to the first element in an array of colours \\
+\mbox{\tt in}  & {\em colours} & pointer to the first element in an array of colours \\
 \hline
-{\em np} & the number of points in the array \\
+\mbox{\tt in}  & {\em np} & the number of points in the array \\
 \hline
 \end{DoxyParams}
 \hypertarget{lcd_8h_abe1303a20303eef126129703ce67962f}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Pixels\+Mono@{lcd\+\_\+set\+Pixels\+Mono}}
@@ -388,12 +388,12 @@ Colours all of the pixels in the array {\ttfamily p} in the colour {\ttfamily co
 The length of the array {\ttfamily p} should be at least {\ttfamily np} elements long.
 
 
-\begin{DoxyParams}{Parameters}
-{\em p} & pointer to the first element in an array of points \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p} & pointer to the first element in an array of points \\
 \hline
-{\em colour} & the colour to set the pixels to \\
+\mbox{\tt in}  & {\em colour} & the colour to set the pixels to \\
 \hline
-{\em np} & the number of points in the array \\
+\mbox{\tt in}  & {\em np} & the number of points in the array \\
 \hline
 \end{DoxyParams}
 \hypertarget{lcd_8h_a8ee1fb31c2842e2a0d833520d9f9b2b8}{}\index{lcd.\+h@{lcd.\+h}!lcd\+\_\+set\+Region@{lcd\+\_\+set\+Region}}
