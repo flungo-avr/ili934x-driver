@@ -119,7 +119,7 @@ void lcd_setOrientation(lcd_orientation orient);
  * Set the brightness level of the display.
  *
  * @param[in] br the brightness as a value from `0` to `255` where `255` is the
- * brightest.
+ *               brightest
  */
 void lcd_setBrightness(uint8_t br);
 
@@ -156,7 +156,7 @@ void lcd_setColour(lcd_colour16 colour);
  * Set an individual pixel to a specific colour.
  *
  * @param p      the co-ordinates of the pixel to colour from the top left corner of
- * the display
+ *               the display
  * @param colour the colour to set the pixel to
  */
 void lcd_setPixel(lcd_point p, lcd_colour16 colour);
@@ -196,10 +196,52 @@ void lcd_setPixels8bit(lcd_point *p, lcd_colour8 *colours, uint16_t np);
  */
 void lcd_setPixelsMono(lcd_point *p, lcd_colour16 colour, uint16_t np);
 
+/**
+ * Sets the colour of a given region.
+ *
+ * @param[in] region the region to set the colour for
+ * @param[in] colour the colour to set the region to
+ */
 void lcd_setRegion(lcd_region region, lcd_colour16 colour);
+
+/**
+ * Maps the colours of an array of colours to an array of regions. For each
+ * region `r` with index `i` the region will be coloured with the colour with
+ * the corresponding colour of index `i` from the `colours` array. Both `region`
+ * and `colours` should have at least `np` elements.
+ *
+ * @param[in] region pointer to the first element of the array of regions to
+ *                   colour
+ * @param[in] colour pointer to the first element of the array of colours to map
+ *                   to regions
+ * @param[in] np     the number of regions in the array
+ */
 void lcd_setRegions(lcd_region *region, lcd_colour16 *colour, uint16_t nr);
+/**
+ * Maps the colours of an array of colours to an array of regions. For each
+ * region `r` with index `i` the region will be coloured with the colour with
+ * the corresponding colour of index `i` from the `colours` array. Both `region`
+ * and `colours` should have at least `np` elements.
+ *
+ * @param[in] region pointer to the first element of the array of regions to
+ *                   colour
+ * @param[in] colour pointer to the first element of the array of 8 bit colours
+ *                   to map to regions
+ * @param[in] np     the number of regions in the array
+ */
 void lcd_setRegions8bit(lcd_region *region, lcd_colour8 *colour, uint16_t nr);
+
+/**
+ * Colours all of the regions in the array `region` in the colour `colour`.
+ *
+ * The length of the array `p` should be at least `np` elements long.
+ *
+ * @param[in] region pointer to the first element in an array of points
+ * @param[in] colour the colour to set the pixels to
+ * @param[in] np     the number of points in the array
+ */
 void lcd_setRegionsMono(lcd_region *region, lcd_colour16 colour, uint16_t nr);
+
 void lcd_setBitmap(lcd_region region, lcd_colour16 *colour);
 void lcd_setBitmap8bit(lcd_region region, lcd_colour8 *colour);
 void lcd_setBitmapMono(lcd_region region, uint8_t *data, uint8_t bpc);
