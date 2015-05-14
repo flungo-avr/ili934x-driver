@@ -155,9 +155,9 @@ void lcd_setColour(lcd_colour16 colour);
 /**
  * Set an individual pixel to a specific colour.
  *
- * @param p      the co-ordinates of the pixel to colour from the top left corner of
- *               the display
- * @param colour the colour to set the pixel to
+ * @param[in] p      the co-ordinates of the pixel to colour from the top left corner of
+ *                   display
+ * @param[in] colour the colour to set the pixel to
  */
 void lcd_setPixel(lcd_point p, lcd_colour16 colour);
 
@@ -167,9 +167,9 @@ void lcd_setPixel(lcd_point p, lcd_colour16 colour);
  * corresponding colour of index `i` from the `colours` array. Both `p` and
  * `colours` should have at least `np` elements.
  *
- * @param p       pointer to the first element in an array of points
- * @param colours pointer to the first element in an array of colours
- * @param np      the number of points in the array
+ * @param[in] p       pointer to the first element in an array of points
+ * @param[in] colours pointer to the first element in an array of colours
+ * @param[in] np      the number of points in the array
  */
 void lcd_setPixels(lcd_point *p, lcd_colour16 *colours, uint16_t np);
 /**
@@ -181,18 +181,18 @@ void lcd_setPixels(lcd_point *p, lcd_colour16 *colours, uint16_t np);
  * For large arrays of points, using 8-bit colour will reduce the memory
  * overhead.
  *
- * @param p       pointer to the first element in an array of points
- * @param colours pointer to the first element in an array of colours
- * @param np      the number of points in the array
+ * @param[in] p       pointer to the first element in an array of points
+ * @param[in] colours pointer to the first element in an array of colours
+ * @param[in] np      the number of points in the array
  */
 void lcd_setPixels8bit(lcd_point *p, lcd_colour8 *colours, uint16_t np);
 /**
  * Colours all of the pixels in the array `p` in the colour `colour`. The length
  * of the array `p` should be at least `np` elements long.
  *
- * @param p       pointer to the first element in an array of points
- * @param colour the colour to set the pixels to
- * @param np      the number of points in the array
+ * @param[in] p       pointer to the first element in an array of points
+ * @param[in] colour the colour to set the pixels to
+ * @param[in] np      the number of points in the array
  */
 void lcd_setPixelsMono(lcd_point *p, lcd_colour16 colour, uint16_t np);
 
