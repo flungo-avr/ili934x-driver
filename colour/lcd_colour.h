@@ -24,8 +24,8 @@
 
 #include <stdint.h>
 
-#ifndef ILI934X_COLOUR_COLOUR
-  #define ILI934X_COLOUR_COLOUR 1
+#ifndef ILI934X_LIB_LCD_COLOUR
+  #define ILI934X_LIB_LCD_COLOUR 1
 
   /* 16 bit colour (5-6-5) */
   typedef uint16_t lcd_colour16;

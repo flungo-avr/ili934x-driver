@@ -23,6 +23,9 @@
  *
  */
 
+#ifndef ILI934X_LIB_COLOUR_BASIC_H
+#define ILI934X_LIB_COLOUR_BASIC_H 1
+
 /* Colour definitions RGB565 */
 #ifndef WHITE
   #define WHITE       0xFFFF
@@ -47,4 +50,6 @@
 #endif
 #ifndef BLACK
   #define YELLOW      0xFFE0
+#endif
+
 #endif

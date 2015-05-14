@@ -24,8 +24,8 @@
 
 #include "ili934x.h"
 
-#ifndef ILI934X_LIB_ILI934X_CMDH
-#define ILI934X_LIB_ILI934X_CMDH 1
+#ifndef ILI934X_LIB_ILI934X_CMD_H
+#define ILI934X_LIB_ILI934X_CMD_H 1
 
 /* Command definitions based on version 1.10 of the a-Si TFT LCD Single Chip
  * Driver (240RGBx320 Resolution and 262K color) Specification

@@ -25,8 +25,8 @@
 /* Constants for the ILI934X driver */
 
 
-#ifndef ILI934X_LIB_ILI934X_CONSTH
-#define ILI934X_LIB_ILI934X_CONSTH 1
+#ifndef ILI934X_LIB_ILI934X_CONST_H
+#define ILI934X_LIB_ILI934X_CONST_H 1
 
 #define ILI934X_RTNX_MIN                16
 #define ILI934X_RTNX_MAX                31

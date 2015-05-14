@@ -23,8 +23,8 @@
  *
  */
 
-#ifndef ILI934X_CONF
-#define ILI934X_CONF 1
+#ifndef ILI934X_CONF_H
+#define ILI934X_CONF_H 1
 
 #define ILI934X_BLC_PIN                 4
 #define ILI934X_RESET_PIN               7

@@ -37,8 +37,8 @@
 #include "lcd_colour.h"
 #include "lcd_colour_basic.h"
 
-#ifndef ILI934X_LIB_LCDH
-#define ILI934X_LIB_LCDH 1
+#ifndef ILI934X_LIB_LCD_H
+#define ILI934X_LIB_LCD_H 1
 
 /**
  * Width of the LCD Display in pixels at the default orientation.

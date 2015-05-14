@@ -23,6 +23,10 @@
  *
  */
 
+
+#ifndef ILI934X_LIB_COLOUR_SVG_H
+#define ILI934X_LIB_COLOUR_SVG_H 1
+
 /* SVG Color Names mapped to 16bit RGB
    with 5-6-5 bit allocation:
 
@@ -181,3 +185,5 @@
 #define WHITE                   0xFFFF
 #define WHITE_SMOKE             0xF79E
 #define YELLOW                  0xFFE0
+
+#endif

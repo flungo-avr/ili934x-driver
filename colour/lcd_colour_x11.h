@@ -23,6 +23,10 @@
  *
  */
 
+
+#ifndef ILI934X_LIB_COLOUR_X11_H
+#define ILI934X_LIB_COLOUR_X11_H 1
+
 /* X11 Color Names mapped to 16bit RGB
    with 5-6-5 bit allocation:
 
@@ -348,3 +352,5 @@
 #define YELLOW_2            0xEF60
 #define YELLOW_3            0xCE60
 #define YELLOW_4            0x8C40
+
+#endif
