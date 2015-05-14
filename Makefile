@@ -21,8 +21,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-BUILD_DIR    := _build
+# Target Architecture
+MCU   := at90usb1286
+F_CPU := 8000000UL
+
+# Tool Options
+CFLAGS       := -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU)
 CFLAGS       += -Wall -Wextra -pedantic
+
+# Directories
+BUILD_DIR    := _build
 
 # Ignoring hidden directories; sorting to drop duplicates:
 CFILES       := $(shell find . ! -path "*/\.*" -type f -name "*.c")
