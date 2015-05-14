@@ -1,2 +1,5 @@
 # Ignore configuration file
 ili934x_conf.h
+
+# Objects built by Makefile
+/_build/
