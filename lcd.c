@@ -74,15 +74,8 @@ void lcd_init() {
   );
   #endif
   /* Init lcd object */
-  #if ILI934X_ROW_COL_EXCHANGE
-  /* Exchange the wdith and height */
-  lcd.width = LCD_HEIGHT;
-  lcd.height = LCD_WIDTH;
-  #else
-  /* Width is width, height is height */
   lcd.width = LCD_WIDTH;
   lcd.height = LCD_HEIGHT;
-  #endif
   lcd.orient = North;
   lcd.background = BLACK;
   lcd.foreground = WHITE;

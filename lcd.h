@@ -40,14 +40,20 @@
 #ifndef ILI934X_LIB_LCD_H
 #define ILI934X_LIB_LCD_H 1
 
-/**
- * Width of the LCD Display in pixels at the default orientation.
- */
-#define LCD_WIDTH  240
-/**
- * Height of the LCD Display in pixels at the default orientation.
- */
-#define LCD_HEIGHT 320
+#if ! ILI934X_ROW_COL_EXCHANGE
+  /**
+   * Width of the LCD Display in pixels at the default orientation.
+   */
+  #define LCD_WIDTH  240
+  /**
+   * Height of the LCD Display in pixels at the default orientation.
+   */
+  #define LCD_HEIGHT 320
+#else
+  /* Exchange the wdith and height when row and col are swapped */
+  #define LCD_WIDTH  320
+  #define LCD_HEIGHT 240
+#endif
 
 typedef enum {
   North = 0,
