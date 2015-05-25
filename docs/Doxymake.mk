@@ -22,7 +22,7 @@
 
 CLEAN_FIND_OPTS               = -mindepth 1 -maxdepth 1
 CLEAN_FIND_ACTION             = -exec rm -r {} \;
-HTML_CLEAN_EXCLUDE            = '.git*'
+HTML_CLEAN_EXCLUDE            = '.git*' 'CNAME'
 HTML_CLEAN_EXCLUDE_FIND_ARGS  = $(addprefix ! -name , $(HTML_CLEAN_EXCLUDE))
 LATEX_CLEAN_EXCLUDE           = '.git*'
 LATEX_CLEAN_EXCLUDE_FIND_ARGS = $(addprefix ! -name , $(LATEX_CLEAN_EXCLUDE))
